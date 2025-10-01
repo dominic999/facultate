@@ -1,0 +1,56 @@
+body{
+    background-color:black;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+
+#poza{
+    position: absolute;
+    display: inline-block;
+    left: 17vw;
+    display: none;
+}
+
+label{
+    border: 1px white solid;
+    padding: 0.3em;
+
+}
+
+
+
+#zonaUpload{
+    color: white;
+    padding: 2em;
+    position: relative;
+    margin-top: 7vw;
+    width: 70vw;
+    height: 40vw;
+    border: 3px white dashed;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    align-content: end;
+    grid-template-columns: 1;
+    grid-template-rows: 2;
+    row-gap: 1em;
+    font-size: 1.5em;
+}
+
+
+#sub{
+    font-size: 1em;
+    background-color: black;
+    height: 2em;
+    color: white;
+}
+
+
+
+#path{
+    text-align: center;
+    color: white;
+}

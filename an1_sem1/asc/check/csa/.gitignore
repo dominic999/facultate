@@ -1,0 +1,15 @@
+# Ignore add_get_delete_defragmentation
+*
+
+# Don't ignore files that have a file extension
+!*.*
+
+# Don't ignore directories
+!*/
+
+# Ignore ide
+.idea/
+
+# Ignore solutions
+project/task1.py
+project/task2.py

@@ -1,0 +1,18 @@
+Formatul fisierului citi de program va arata astfel
+1.Va primi o multime de stari sub forma Q= stare1,stare2,..,stareN.
+stare1 va fi considerata automat starea de start
+2.Va primi un alfabet de input sub forma de E= char1, char2,..., charN
+3.Va primi un alfabet de tape sub fomra de F= char1, char2,..., charN.
+Se vor adauga automat caracterele din E si cuvantul blank care va fi notat "_"
+4.Va primi starea de accept si una de reject sub form de FF= stareN, stareM
+5.Va primi o functie pentru care se vor defini toate cazurile sub forba de 
+D(q,f)=(q',f',{l/r})
+Unde: 
+a.(q,q') sunt din Q, q reprezinta stare in care se afla, iar q' starea in care se duce
+b.(f,f') sunt fin F,f f reprezinta sibolul scris pe banda, iar f' simbolul ce il va suprascrie
+c,{l,r} sunt left or right, adica directia in care se va duce scannerul
+6.Va primi un input unde toate caractele trebuie sa apartina lui E,
+acesta va putea fi continuat ulterior daca scannerul depaseste numarul de caractere deja introdus fara a ajunge intr-un halting state
+In plus, daca pui (input) o sa il considere perioada si daca vrei sa fie pe banda si cuvantul
+blank "_" trebuie sa il adaugi manual: (char1, _, char2, _ ...)
+

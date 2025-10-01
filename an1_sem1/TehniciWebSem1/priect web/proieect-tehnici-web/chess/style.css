@@ -1,0 +1,122 @@
+body{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    background-color: #0e0d26;
+    align-items: center;
+    padding-top: 4em;
+    width: 100%;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+#numerotare{
+    width: 59vw;
+    position: relative;
+}
+
+
+#litere{
+    position: absolute;
+    box-sizing: border-box;
+    left: 3vw;
+    width: 56vw;
+    font-size: 2vw;
+    padding-bottom: 1vw;
+    color: white;
+}
+#litere td{
+    box-sizing: border-box;
+    height: 3vw;
+    width: 7vw;
+    text-align: center;
+    padding-bottom: 1vw;
+}
+
+#numere{
+    position: absolute;
+    box-sizing: border-box;
+    top: 3vw;
+    height: 56vw;
+    font-size: larger;
+    color: white;
+}
+
+#numere td{
+    box-sizing: border-box;
+    padding-right: 1vw;
+    text-align: end;
+    width: 3vw;
+    height: 7vw;
+}
+
+#tabla{
+    box-sizing: border-box;
+    position: absolute;
+    left: 3vw;
+    top: 3vw;
+    width: 56vw;
+    height: 56vw;
+    padding: 0;
+    margin: 0;
+}
+
+#tabla td{
+    box-sizing: border-box;
+    width: 7vw;
+    height: 7vw;
+    margin: 0;
+}
+
+
+
+
+
+@media (max-width: 800px) {
+    #numerotare{
+        width: 76vw;
+    }
+
+
+    #litere{
+        height: 4vw;
+        width: 72vw;
+        left: 4vw;
+        top: 0;
+    } 
+    #litere td{
+        text-align: center;
+        padding-bottom: 1vw;
+        margin-bottom: 1vw;
+        width: 9vw;
+        height: 4vw;
+    }
+
+
+    #tabla{
+        top: 7vw;
+        left: 4vw;
+        width: 72vw;
+        height: 72vw;
+    }
+
+    #tabla td{
+        width: 9vw;
+        height: 9vw;
+    }
+
+    #numere{
+        top: 7vw;
+        height: 76vw;
+    }
+    
+    #numere td{
+        width: 4vw;
+        height: 9vw;
+    }
+
+   
+}

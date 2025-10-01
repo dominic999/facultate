@@ -1,0 +1,18 @@
+//Elementele tuturor multimilor vor fi separate printr-o singura virgula
+//Primul rand va fi reprezentat de multimea de stari si va fi definit astfel:
+//Q: q1,q2,q3,...,qn
+//Prima stare va fi mereu cea initiala
+//Al doilea rand va fi reprezentat de alfabet astfel:
+//E: a,b,c,... 
+//Al treile rand reprezinte stariile de acceptare ce vor fi scrise astfel
+//F:f1,f2,...
+//Apoi functia delta va arata astfel:
+//D(stare,caracter,varfStiva)=(stareNoua, pushPeStiva)
+//Se va scrie functia pentru fiecare stare
+//Stiva va incepe automat cu un $
+//Simbolul & reprezinta cuvantul vid, "nimic"
+//Daca varfSiva este egal cu & atunci conditia este indeplinita
+//pentru orice este in varful stivei si nu este nimic scos
+//Daca pushPeStiva este &, atunci nu va fi nimic pushat pe stiva
+//La final daca verific ca inputul sa fie &, inseamna ca verific daca 
+//s-a terminat stringul si vreau sa vad ce este pe stiva
