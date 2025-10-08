@@ -2,6 +2,10 @@
 #include<stdlib.h>
 #include<unistd.h>
 
+int returnceva(){
+  return 1;
+}
+
 int main(){
 
   int pid = getpid();
@@ -10,5 +14,6 @@ int main(){
   printf("pid: %d\n", pid);
   printf("uid: %d\n", uid);
   printf("gid: %d\n", gid);
+  returnceva();
   return 0;
 }
