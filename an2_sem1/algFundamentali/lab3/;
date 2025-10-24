@@ -1,0 +1,24 @@
+#include <iostream>
+#include <vector>
+#include <fsream>
+
+ifsream fin("dfs.in");
+ofsream fout("dfs.out");
+
+// void dfs(int nod){
+//   vis[nod] = 1;
+//   for 
+// }
+
+int main(){
+
+  int N, M;
+  int nr=0;
+  vector<vector<int>> noduri;
+  vector<int> vis = {0};
+  fin>>N>>M;
+  for (int i = 0; i  < N; i++){
+    vis[i] = 0;
+  }
+  return 0;
+}
