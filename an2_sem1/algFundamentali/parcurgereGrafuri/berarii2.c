@@ -1,27 +1,51 @@
-#include <_stdio.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <fcntl.h>
 #include <sys/fcntl.h>
 
 typedef struct Node{
-  int d;
   int val;
   struct Node* next;
 }Node;
 
-void pop(Node* head){
+typedef struct S{
+  int val;
+  struct S* next;
+}S;
+
+int pop(Node* head){
   if(head == NULL){
-    return;
+    return -1;
   }
   if(head->next == NULL){
+    int v = head->val;
     free(head);
     head = NULL;
-    return;
+    return v;
   }
   Node* new = head;
+  int val = head->val;
   head = head->next;
   free(new);
+  return val;
+}
+
+S* pushS(S* head, int val){
+  if(head == NULL){
+    head = (S*)malloc(sizeof(S));
+    head->val = val;
+    head->next = NULL;
+    return head;
+  }
+  S* cp = head;
+  while(cp->next){
+    cp=cp->next;
+  }
+  S* new = (S*)malloc(sizeof(S));
+  new->val = val;
+  new->next = NULL;
+  cp->next = new;
+  return head;
 }
 
 
@@ -30,7 +54,6 @@ Node* pushN(Node* head, int val){
     head = (Node* )malloc(sizeof(Node));
     head->val = val;
     head->next = NULL;
-    head->d = -1;
     return head;
   }
   Node* cp = head;
@@ -40,16 +63,35 @@ Node* pushN(Node* head, int val){
   Node* newNode = (Node*)malloc(sizeof(Node));
   newNode->val = val;
   newNode->next = NULL;
-  newNode->d = -1;
   cp->next = newNode;
   return head;
 }
 
-void bfs(Node* head, Node** vecini){
-  Node* stiva = NULL;
-  head->d = 0;
-  stiva = pushN(stiva, head->val);
-  while(stiva != NULL);
+int popS(S* head){
+  if(head == NULL){
+    return -1;
+  }
+  S* new = head->next;
+  int v = head->val;
+  free(head);
+  head = new;
+  return v;
+}
+
+void bfs(int head, Node** vecini, int distante[]){
+  S* stiva = NULL;
+  distante[head] = 0;
+  stiva = pushS(stiva, head);
+  while(stiva != NULL){
+    int actual = popS(stiva);
+    Node* ac = vecini[actual];
+    while(ac != NULL){
+      if(distante[ac->val] < 0) {
+        stiva = pushS(stiva, ac->val);
+        distante[ac->val] = distante[actual]+1;
+      }
+    }
+  }
 
 
 }
@@ -89,16 +131,28 @@ int main(){
     vecini[i] = NULL;
   }
   int* berarii = (int*)malloc(sizeof(int) * p);
+  int* distante = (int*)malloc(sizeof(int) * (n+1));
+  for(int i = 0; i <= n; i++){
+    distante[i] = -1;
+  }
 
+  //aici citesc muchiile
   for(int i = 0; i < m; i++){
     int st, dr;
     fscanf(input, "%d %d", &st, &dr);
     printf("%d %d\n", st, dr);
     vecini[dr] = pushN(vecini[dr], st);
   }
+
+  //aici citesc intersectiile cu bere
+  int bere;
   for(int i = 0; i < p; i++){
-    fscanf(input, "%d", berarii+i);
+    fscanf(input, "%d", &bere);
+    bfs(bere, vecini, distante);
   }
+
+
+  //aici afisez si sterg vecinii
   for(int i = 1; i <= n; i++){
     printf("%d: ", i);
     afisareList(vecini[i]);
