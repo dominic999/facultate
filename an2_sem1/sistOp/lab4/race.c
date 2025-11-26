@@ -4,7 +4,7 @@
 
 void myprint(char* str){
   char c;
-  for(c = *str; c=*str++;){
+  for(c = *str; c=(*str++);){
     write(1, &c, 1);
   }
 }

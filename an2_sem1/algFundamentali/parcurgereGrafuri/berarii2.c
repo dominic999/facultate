@@ -8,10 +8,18 @@ typedef struct Node{
   struct Node* next;
 }Node;
 
-typedef struct S{
-  int val;
-  struct S* next;
-}S;
+Node* pushN(Node* head, int val){
+  if(head == NULL){
+    Node* newNode = (Node* )malloc(sizeof(Node));
+    newNode->val = val;
+    newNode->next = NULL;
+    return newNode;
+  }
+  Node* newNode = (Node*)malloc(sizeof(Node));
+  newNode->val = val;
+  newNode->next = head;
+  return newNode;
+}
 
 int pop(Node* head){
   if(head == NULL){
@@ -30,71 +38,27 @@ int pop(Node* head){
   return val;
 }
 
-S* pushS(S* head, int val){
-  if(head == NULL){
-    head = (S*)malloc(sizeof(S));
-    head->val = val;
-    head->next = NULL;
-    return head;
-  }
-  S* cp = head;
-  while(cp->next){
-    cp=cp->next;
-  }
-  S* new = (S*)malloc(sizeof(S));
-  new->val = val;
-  new->next = NULL;
-  cp->next = new;
-  return head;
-}
 
-
-Node* pushN(Node* head, int val){
-  if(head == NULL){
-    head = (Node* )malloc(sizeof(Node));
-    head->val = val;
-    head->next = NULL;
-    return head;
-  }
-  Node* cp = head;
-  while(cp->next){
-    cp=cp->next;
-  }
-  Node* newNode = (Node*)malloc(sizeof(Node));
-  newNode->val = val;
-  newNode->next = NULL;
-  cp->next = newNode;
-  return head;
-}
-
-int popS(S* head){
-  if(head == NULL){
-    return -1;
-  }
-  S* new = head->next;
-  int v = head->val;
-  free(head);
-  head = new;
-  return v;
-}
-
-void bfs(int head, Node** vecini, int distante[]){
-  S* stiva = NULL;
-  distante[head] = 0;
-  stiva = pushS(stiva, head);
-  while(stiva != NULL){
-    int actual = popS(stiva);
+void bfs(int head, Node** vecini, int visited[], int n){
+  int* stiva = (int*)malloc(sizeof(int)*(n+1));
+  int h = 0;
+  int c = 0;
+  visited[head] = 1;
+  stiva[c++] = head;
+  while(c>h){
+    int actual = stiva[h++];
     Node* ac = vecini[actual];
     while(ac != NULL){
-      if(distante[ac->val] < 0) {
-        stiva = pushS(stiva, ac->val);
-        distante[ac->val] = distante[actual]+1;
+      if(visited[ac->val] == 0) {
+        stiva[c++] = ac->val;
+        visited[ac->val] = 1;
       }
+      ac = ac->next;
     }
   }
-
-
+  free(stiva);
 }
+
 
 void deleteList(Node* head){
   if(head == NULL){
@@ -110,15 +74,7 @@ void deleteList(Node* head){
     head = next;
     next=next->next;
   }
-
-}
-
-void afisareList(Node* head){
-  Node* cp = head;
-  while(cp){
-    printf("%d, ", cp->val);
-    cp=cp->next;
-  }
+  free(head);
 }
 
 int main(){
@@ -130,33 +86,40 @@ int main(){
   for(int i = 1; i < n+1; i++){
     vecini[i] = NULL;
   }
-  int* berarii = (int*)malloc(sizeof(int) * p);
-  int* distante = (int*)malloc(sizeof(int) * (n+1));
-  for(int i = 0; i <= n; i++){
-    distante[i] = -1;
+  int* visited = (int*)malloc(sizeof(int) * (n+1));
+  for(int i = 0; i < p; i++){
+    visited[i] = 0;
   }
 
   //aici citesc muchiile
   for(int i = 0; i < m; i++){
     int st, dr;
     fscanf(input, "%d %d", &st, &dr);
-    printf("%d %d\n", st, dr);
     vecini[dr] = pushN(vecini[dr], st);
   }
 
   //aici citesc intersectiile cu bere
-  int bere;
+  int fin = 0;
   for(int i = 0; i < p; i++){
+    int bere;
     fscanf(input, "%d", &bere);
-    bfs(bere, vecini, distante);
+    bfs(bere, vecini, visited, n);
   }
-
+  for (int k = 1; k <= n; k++){
+    if(visited[k] == 0){
+      fin++;
+    }
+  }
+  
+  fprintf(output, "%d\n", fin);
+  for(int i = 1; i <= n; i++){
+    if(visited[i] == 0){
+      fprintf(output, "%d\n", i);
+    }
+  }
 
   //aici afisez si sterg vecinii
   for(int i = 1; i <= n; i++){
-    printf("%d: ", i);
-    afisareList(vecini[i]);
-    printf("\n");
     deleteList(vecini[i]);
   }
 
