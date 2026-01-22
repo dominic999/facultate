@@ -1,6 +1,44 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 import datetime
+from urllib.parse import urlparse, parse_qs
+
+class Accesare:
+    id_global = 0   # atribut de clasa pentru autoincrement
+
+    def __init__(self, ip_client=None, url=None, data=None):
+        Accesare.id_global += 1
+        self.id = Accesare.id_global
+
+        self.ip_client = ip_client
+        self.url_initial = url     # pastram URL-ul exact primit
+        self.data_initiala = data  # poate fi datetime sau None
+
+    def lista_parametri(self):
+        return [
+            ("id", self.id),
+            ("ip_client", self.ip_client if self.ip_client is not None else None),
+            ("url", self.url_initial if self.url_initial is not None else None),
+            ("data", self.data_initiala if self.data_initiala is not None else None)
+        ]
+
+    def url(self):
+        return self.url_initial
+
+    def data(self, format_string=None):
+        if self.data_initiala is None:
+            return None
+
+        if format_string is not None:
+            return self.data_initiala.strftime(format_string)
+        return self.data_initiala
+
+    def pagina(self):
+        if self.url_initial is None:
+            return None
+
+        parsed = urlparse(self.url_initial)
+        return parsed.path
 
 def afis_data(parametru):
     zile_sapt = ["Luni", "Marti", "Miercuri", "Joi",
