@@ -1,17 +1,19 @@
 #include <stdio.h>
-#include <sys/fcntl.h>
+#include <stdlib.h>
 #include <unistd.h>
 #include <fcntl.h>
 
-int main(int argc, char* argv[]){
+int main(){
 
   char* path = "tempfile";
-  int fid = open(path, O_RDWR);
-  unlink(argv[1]);
-  printf("sters\n");
+  const int fid =  open(path, O_RDWR);
+  unlink(path);
+  printf("am sters tempfile\n");
   sleep(15);
-  char buf[256];
-  read(fid, buf, 256);
-  printf("continut temp: %s\n", buf);
+  char buf[64];
+  read(fid, buf, 64);
+  printf("%s\n", buf);
+  close(fid);
+  
   return 0;
 }

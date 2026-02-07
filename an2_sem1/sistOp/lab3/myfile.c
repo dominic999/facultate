@@ -1,24 +1,21 @@
 #include <stdio.h>
-#include <stdlib.h>
 #include <sys/stat.h>
-#include <sys/types.h>
+#include <stdlib.h>
 
 int main(int argc, char* argv[]){
-
-  struct stat* buf;
+  if(argc < 3)
+    return 1;
 
   for(int i = 1; i < argc; i++){
-    lstat(argv[i], buf);
-    if(S_ISREG(buf->st_mode)){
-      printf("fisier\n");
-    }else if(S_ISDIR(buf->st_mode)){
-      printf("director\n");
-    }else if(S_ISFIFO(buf->st_mode)){
-      printf("fifo\n");
-    }else if(S_ISLNK(buf->st_mode)){
-      printf("link\n");
-    }
-
+    struct stat new;
+    stat(argv[i], &new);
+    if(S_ISREG(new.st_mode))
+      printf("normal file");
+    else if(S_ISDIR(new.st_mode))
+      printf("directory");
+    else if (S_ISCHR(new.st_mode)) 
+      printf("is char dev");
+    
   }
 
   return 0;

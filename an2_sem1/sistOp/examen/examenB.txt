@@ -1,0 +1,47 @@
+1)
+a)child
+  parent
+b)--3--
+--statusul contine codul de iesire codificat, 3 se obtine prin wexitstatus(status)
+c)Daca eliminam wait nu avem sigur de unde sa stim ce se va afisa prima oara, --apare proces zombi si rezultatul este nedeterminisd, deoarece nu stim cum va programa schedulerul procesele.
+
+2)
+a) --Direct: procesele de adreseaza explicit send(mesaj, id), indirect: comunicarea se face prin porturi
+b)?
+c)Rendez vous apare atunci cand avem un buffer de dimensiune 0 si consumatorul astepta sa primeasca de la producator, apoi producatorul asteapta ca cititorul 
+sa citeasca si tot asa.
+d)Buffering 0: nu exista niciun fel de buffer, cititorul asteapta ca producatorul sa trimita ceva, apoi producatorul asteapta ca cititorul sa citeasca, apare
+rendez vous.
+Buffer bounded: avem un buffer limitat, cand bufferul este plin producatorul asteapta ca cititorul sa citeasca ceva, cand bufferul este gol, cititorul asteapta
+ca producatorul sa puna ceva in el.
+Buffer unbounded: un buffer nelimitat, practic doar cititorul asteapta ca producatorul sa trimita ceva daca bufferul este gol.
+
+3)
+a) Device controllerul este ca un mini procesor pe fiecare device (tastatura, HD, etc). Acesta comunica cu procesorul si trimite intreruperi HW.
+b) Dma-ul se ocupa cu punerea datelor din memoria secundara in memoria principala fara interventia procesorului. Reduce din overhead, deoarece fara ea
+procesorul ar fi trebuit sa iroseasca ciclii pentru a lua datele din memoria secundara si a le pune in cea principala, fara sa faca nicio operatie dintr o 
+aplicatie a utilizatorului.
+c)I/O sync functioneaza astfel: 
+--Cand un proces face o operatie I/O ramane in executie pana cand este satisfactua.--
+--Procesul este blocat pana cand operatia este finalizata.
+I/O async functioneaza astfel:
+--Cand un proces fara o operatie I/O este scos din executie pana cand aceasta este satisfactua, iar apoi intra in starea de ready.--
+--Procesul continua pana cand primeste o intrerupere
+
+4)
+a) Aplicatiile sunt OS dependent, deoarece fiecare sistem de operare are propriile sale apeluri de sistem, intreruperi.
+b) API-ul este de exemplu printf(). Printful nu este o intrerupere a sistemului de operare, este o functie de librarie, care ulterior duce la apelarea
+sys callului write ce este handleuita direct de kernel.
+c) Parametrii unui system call sunt transmsi fie prin punerea lor in registrii, fie prin punera lor intr un vector, iar apoi adresa acestuia este pusa intr-un 
+registru.
+
+5)
+a) Un socker este un endpoint de comunicare.
+b) --TCP: conexiune, fiabil, ordonat
+--UDP: fara conexiume, rapid, fara garantii
+c) --RPC rezova problema sistemelor distribuite.--
+--Ofera iluzia apelului local, ascunde detalii de retea
+d) Marshalling este procesul prin care parametrii unui RPC sunt formatati pentru a fi intelesi de masina pe care se afla.
+Sa zicem ca masina A face un rpc la masina B pentru functia f. Functia f va fi inlocuita cu un stub, iar apoi se va face marshalling pe parametrii ei.
+Apoi acest apel ajunge pe masina B unde se afla de fapt functia f si parametrii for vi unmarshalled, se va rula functia si se va face marshall inapoi pe parametrii,
+ce vor fi trimisi inapi pe masina A, unde se va face iar unmarshalling.

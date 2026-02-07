@@ -1,0 +1,100 @@
+Simulare 1
+
+1) Si ele vor fi scoase de pe CPU deoarce kernelul nu stie nimic despre user threads.
+2) Schedulerul kernel vede doar threadurile kernel.
+3) Nu se mai poate, procesul este scos de pe CPU.
+4) Daca modelul se schimba la One to one, atunci unul dintre T2 si T3 va fi adaugat pe CPU 
+
+
+Simulare 2
+
+1) Cand T1 se blocheaza acestea va fi pus in starea de waiting si va fi mutat la final, kernelul va trimite un upcall si va crea o activare noua,
+Va fi pus un thread pe A2 si va incepe rularea ei.
+--salveaza contextul lui T1, marcheaza activarea ca indisponibila si face upcall.
+2) Va crea o activare noua.
+--nu neaparat
+3) Un upcall este un semnal trimis de kernel catre user space ce spune "uite o activare noua, pune un thread pe ea".
+4) Contextul lui T1 este salvat intr o activare noua.
+--contextul este salvat intr-o structura user level nu intr o activare noua
+5) Orice alt thread user ce nu este blocat.
+
+
+Simulare 3
+
+1) In primul rand, pot fi alte threaduri ce ar vrea sa acceseze zona critica si nu pot din cauza spin lockului.
+--apare deadlock/starvation : alte threaduri intra in spin lock in timp ce il asteapta pe acesta sa il deblocheze.
+2) --schduler activation dezactiveaza preemtia pentru threaduri aflate in spin lock.
+3) Ce tipuri de upcall exista? --upcall de tip preemtion
+4) Pentru ca user applicationul poate sa puna un alt thread imediat.
+--poate rula imediat threadul ce contine lockul
+
+
+Simulare 4
+
+1) Nu, o operatie idempotenta inseamna ca de oricate ori am rula-o, efectul ei este acelasi.
+2) Se poate face operatia de mai multe ori, desi nu vrem asta.
+3) Poate obtine incrementarea variabilei de mai multe ori.
+4) Only once, sau in cel mai rau caz at most once.
+
+
+Simulare 5
+
+1) Masina ce primeste intul nu va sti cum sa il interpreteze.
+2) XDR este un standard de trimitere a datelor, astfel, chiar daca clientul are o reprezentare a lui si serverul o alta reprezentare, amandoua vor putea sa 
+interpreteze datele primite de la celalalt.
+3) Conversia are loc pe ambele masini.
+4) Ambele.
+
+
+Simulare 6
+
+1) Depinde de ce protocol este folosit.
+--clientul nu va sti daca procedura s-a executat
+2) --apare ambiguitate semnatica
+3) Daca este at least once, procedura sigur nu va mai rula, daca este at least once, poate sa ruleze urmatoarea data.
+4) Operatii idempotente.
+
+
+Simulare 7
+
+1) Semnalul va fi tratat de threadul T3.
+2) Semnalul va fi ignorat.
+--semnalul ramane pending pana un thread il deblocheaza
+3) Sincron. (Care sunt threadurile sincron si cele asincron)
+--asincron
+4) Nu.
+
+Simulare 8
+
+1) Por fi folosite toate cele 4 coreuri.
+--un singur core
+2) Deoarce pe fiecare core va rula cate un kernel thread.
+--un singur thread kernel ruleaza
+3) Toate modelel permit folosirea tuturor coreurilor. 
+--one to one sau many to many
+4) Care ?
+--cost mai mare de creare si management kernel threads
+
+
+Simulare 9
+
+1) Da
+--nu neaparat
+2) Async inseamna ca chiar daca threadul nu se opreste imediat, rularea continua.
+Deferred inseamna ca threadul verifica constant daca este anulat.
+--async = terminare imediata
+--deferred = terminare doar la cancelation point
+3) Un cancellation point este momentul in care a fost anulat threadul.
+--apel unde threadul verifica daca este anulat
+4) --deferred este mai sigur, deoarce permite eliberarea resurselor
+
+
+Simulare 10
+
+1) Amandoua pot incerca sa modifice aceeasi variabila.
+2) Nu stiu
+--mutex va introudce overhead si blocari inutile
+3) Sincornizare
+--tls garanteaza o copie separata pe thread
+4) NU stiu
+--este stocat in spatiul de memorie al fiecarui thread

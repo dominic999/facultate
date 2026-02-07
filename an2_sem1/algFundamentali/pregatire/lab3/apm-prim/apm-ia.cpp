@@ -35,7 +35,7 @@ void prim(int s, vector<int>& tati, vector<int>& distante, vector<vector<Muchie>
   distante[s] = 0;
   vector<bool> noduri(n,true);
 
-  for(int i = 0; i < n; i++){
+  for(int i = 0; i < ; i++){
 
     int nod_nou = muchie_minima(distante, noduri);
     noduri[nod_nou] = false;

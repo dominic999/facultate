@@ -1,0 +1,66 @@
+1)
+a) Din punct de vedere al utilizatorului , sistemul de operare este programul ce vine cu calculatorul, interfata grafica.
+Din punct de vedere al sistemului, sistemul de operare este granita dintre HW si SW. El se ocupa de gestionarea memoriei, CPU-lui, etc. Uneori vine si cu
+o interfata grafica.
+b) Diferentele dintre kernel, system programs si application programs sunt urmatoarele: kernelul este centrul sistemului de operare.
+Se ocupa de gestionarea resurselor, planificarea proceselor, etc. System programs sunt un nivel deasupra, ele vin cu sistemul de operare dat nu fac parte
+din kernel, spre exemupl terminalul. Application programs sunt programe instalate ulterior ce nu vin cu sistemul de operare.
+c)OS interrupt driven inseamna ca kernelul se opreste din executarea proceselor pentru a handlui intreruperi --nu verifica constant daca apar intreruperi noi.
+Un exemplu software este un apel de sistem.
+--Un exemplu hardware este apasarea unei taste la tastatura.
+
+2)
+a) O intrerupere --este o bucata de cod ce se afla in kernel --este un semnal trimis de software sau hardware ce face a cpu ul sa intre intr-o stare de hault 
+si sa executa o operatie speciala, o rutine de tratare a intreruperii.
+. Exista o tabela de intreruperi, iar cand CPUl primeste o intrerupere kernelul trebuie sa se ocupe de ea. 
+O exceptie este un tip de intrerupere ce trebuie handleuita imediat.
+b) La tratarea unei intreruperi, OS ul salveaza starea procesului, registrii ,--pc, context CPU, flaguri, --paginile din memorie--, tot ce are nevoie procesul respectiv pentru a cotinua ulterior.
+Toate astea sunt salvate intr-un PCB.
+c) Cand este facu un syscall, codul trebuie executat in kernel mode. Exista un bit de mod. Kernelul schimba acel bit din 0(user mode) in 1(kernel mode), executa 
+prcedura de tratare a syscallului si apoi schimba bitul inapoi in user mode.
+
+3)
+a) Un proces este un prgram in rulare, un program activ. Aceste are un stack, in care se afla variabile locale, parametrii, apeluri de functie, 
+heap, unde se afla memoria alocata dinamic (malloc spre exemplu), sectiunea de date, unde sunt variabilele globale, si sectiunea de text unde se afla codul. 
+b) Un proces se poate afla in urmatoarele stari: --new, ready, waiting, --terminated, --finished--, --running, --executing--.
+c) executing -> waiting -> ready - -> finished Procesul este in executie, apoi cere I\O, astapa resursa si intra in waiting, apoi o primeste si este ready  
+    ^                             |   apoi se intoarce in executare si apoi este finalizat.
+    |_____________________________|
+
+4)
+a) PCB ul este process control block. Sunt informatiile necesare unui proces pentru a cotinua, spre exemplu idul, --paginile de memorie--, registrii, stare, fisiere deschise.
+b) Context switc-ul este atunci cand un proces este scos din executie, iar altul este pus pe procesor in locul lui. Se salveaza in PCB toate informatiile 
+mentionate anerior. Overheadul este --din cauza scoaterii  procesului de pe procesor, scoaterea sa din memorie, si adaugarea procesului nou--. Durata lui depinde 
+de informatiile salvate.
+
+5) 
+a) Pe linux primul prcoes este init/systemd, are PID --0-- --1 si este parintele tuturor proceselor. Daca un proces X, porneste un alt proces Y, spunem ca procesul X este
+parintele procesului Y. Daca procesul X este oprit inainte procesului Y, spunem ca acesta este orfan, dar in cazul el va fi preluat in cel mai rau caz de 
+procesul --init/systemd.
+b) fork creeaza un proces copil, din procesul curent. exec inlocuieste procesul curent cu cel dat ca si parametru, wait este folosit impreuna cu fork, 
+in procesul parinte pentru a astepta finalizarea procesului copil si a primi exit code-ul lui.
+c) Un proces zombi este un proces copil ce se termina inainte parintelui, dar un are --apel exit si practic asteapta sa se termine procesul sau parinte, 
+in timp ce un proces orfan este un proces ce a ramas fara niciun 
+proces parinte.
+
+6)
+a) Cele doua IPC uri sunt shared memory si message passing.
+--shared memory: controlul este asigurat de procesele utilizator, kernelul asigura spatiul de memorie, 
+--cost mic, sincronizare: mutexturi semafoare etc
+--message passing: comunicare controlata de os, sincronizare implicita, cost mai mare (copiere mesaje), send\receieve blocking sau non-blocking.
+In cazul shared memory, controlul comunicarii este asigurat de kernel, in timp ce la message passing, comunicare este controlata de protocol(TCP spre ex).
+Costul in cazul shared memoryului este mic, deoarece nu trebuie sa se intample nimic in plus, in schimb la message passing costul este de a trimite mesajul de
+la un proces la altul, durata de asteptare a fiecaruia pentru a primi\trimite mesajul.
+In cazul shared memoryului sincronizarea poate fi implementata cu semafoare sau mutexuri pentru a ne asigura ca nu se acceaseaza variabile din sectiunea critica.
+La message passing nu stiu.
+b)La varianta bounded buffer avem un buffer ce accepta un numar maxim de mesaje. Cand bufferul este plin procuatorul asteapta sa se elibereze,
+cand bufferul este gol, consumatorul asteapta sa se introduca un element nou.
+--Race conditionul apare din cauza ca un element din buffer poate fi modificat pana ajunge de la producator la consumator.--
+--Race condition apare cand variabilele partajate (counter, in, out) sunt modificate fara a fi sincronizate.
+
+
+7)
+a) Un pipe este o modalitate de message passing.
+b) Un ordinary pipe este un si poate fi folosit doar intre parinte si copil, in schimb un named pipe este un file stocat, dar datele sale nu sunt salvate in memoria secundara, 
+ele exista acolo doar pana sunt citite de un consumator, ce nu trebuie sa fie fiul scriitorului sau invers.
+c) Un ordinary pipe poate fi folosit intre parinte si copil, deoarece el este creat in cadrul unui proces, iar cand acel proces moare, nici pipeul nu mai exista.

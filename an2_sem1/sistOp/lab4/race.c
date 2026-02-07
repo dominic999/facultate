@@ -1,28 +1,33 @@
-#include <unistd.h>
 #include <stdio.h>
-#include <sys/types.h>
+#include <stdlib.h>
+#include <fcntl.h>
+#include <string.h>
+#include <unistd.h>
 
 void myprint(char* str){
   char c;
-  for(c = *str; c=(*str++);){
+  int i = 0;
+  while(i < strlen(str)){
+    c = str[i++];
     write(1, &c, 1);
   }
 }
 
-int main(){
+int main(int argc, char *argv[]){
 
-  pid_t pid = fork();
-  if (pid < 0){
-    printf("eroare 1\n");
-    return 1;
-  }else if(pid == 0){
-    for(int i = 0; i < 10; i++)
-    myprint("this is the child process printing\n");
-  }else{
-    for(int i = 0; i < 10; i++)
-    myprint("this is the parent proceess printing\n");
+  char* parinte = "asta este parintele\n";
+  char* copil = "asta este copil\n";
+  int pid = fork();
+  if(pid == 0){
+    for(int i = 0; i < 10; i++){
+      myprint(copil);
+    }
+    exit(1);
+  }else if(pid > 0){
+    for (int i =0; i < 10; i++) {
+      myprint(parinte);
+    }
   }
-  return 0;
+
+  return EXIT_SUCCESS;
 }
-
-

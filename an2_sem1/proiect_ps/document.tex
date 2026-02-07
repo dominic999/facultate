@@ -1,0 +1,755 @@
+
+\documentclass[12pt]{article}
+
+\usepackage[romanian]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{geometry}
+\geometry{margin=2.5cm}
+
+\title{Exercițiul 3}
+\author{Tirdea Dominic Alexandru}
+
+\begin{document}
+\maketitle
+
+\noindent{\Huge \textbf{A}}\par
+
+\section{Modelul probabilistic}
+
+\subsection{Simetrie și reducere la o singură bandă}
+
+Distanța dintre două drepte consecutive este $1$. Situația se repetă identic în fiecare bandă
+\[
+\{(x,y)\in\mathbb{R}^2 \mid n \le y \le n+1\}.
+\]
+
+Prin urmare, este suficient să studiem poziția acului într-o singură bandă, de exemplu între dreptele
+\[
+y=0 \quad \text{și} \quad y=1.
+\]
+
+Fie $C$ centrul acului. Proiectăm poziția lui $C$ pe direcția normală la drepte (verticală). Nu contează poziția pe orizontală, ci doar distanța față de cea mai apropiată dreaptă.
+
+\subsection{Definiția variabilelor aleatoare}
+
+Definim două variabile aleatoare:
+
+\begin{itemize}
+  \item $\Theta$ – unghiul dintre ac și direcția dreptei (axa orizontală). Prin simetrie:
+  \[
+  \Theta \in \left[0,\frac{\pi}{2}\right].
+  \]
+
+  \item $X$ – distanța de la centrul acului $C$ la cea mai apropiată dreaptă.
+\end{itemize}
+
+Într-o bandă de înălțime $1$, această distanță aparține intervalului
+\[
+X \in \left[0,\frac{1}{2}\right].
+\]
+
+\subsection{Distribuțiile lui $X$ și $\Theta$}
+
+Presupunem o aruncare aleatoare în sensul următor:
+
+\begin{itemize}
+  \item orientarea acului este uniformă $\Rightarrow \Theta \sim U\left(0,\frac{\pi}{2}\right)$;
+  \item poziția centrului este uniformă $\Rightarrow X \sim U\left(0,\frac{1}{2}\right)$;
+  \item $X$ și $\Theta$ sunt independente.
+\end{itemize}
+
+Densitățile marginale sunt:
+\[
+f_\Theta(\theta) = \frac{2}{\pi}, \quad \theta \in \left[0,\frac{\pi}{2}\right],
+\]
+\[
+f_X(x) = 2, \quad x \in \left[0,\frac{1}{2}\right].
+\]
+
+Prin independență:
+\[
+f_{X,\Theta}(x,\theta) = f_X(x) f_\Theta(\theta) = \frac{4}{\pi},
+\]
+pentru $(x,\theta)\in\left[0,\frac{1}{2}\right]\times\left[0,\frac{\pi}{2}\right]$.
+
+\section{Condiția geometrică de intersecție}
+
+Acul are lungime $1$, deci distanța de la centru la fiecare capăt este $\frac{1}{2}$.
+
+Proiecția verticală a jumătății de ac este:
+\[
+\frac{1}{2}\sin\Theta.
+\]
+
+Acul intersectează o dreaptă dacă și numai dacă:
+\[
+X \le \frac{1}{2}\sin\Theta.
+\]
+
+\section{Calculul probabilității}
+
+Definim evenimentul:
+\[
+A = \{\text{acul intersectează cel puțin o dreaptă}\}
+= \{(X,\Theta) \mid X \le \tfrac{1}{2}\sin\Theta\}.
+\]
+
+Probabilitatea este:
+\[
+P(A) = \int_0^{\pi/2} \int_0^{\frac{1}{2}\sin\theta}
+f_{X,\Theta}(x,\theta)\,dx\,d\theta.
+\]
+
+\subsection{Integrarea după $x$}
+
+Pentru $\theta$ fix:
+\[
+\int_0^{\frac{1}{2}\sin\theta} \frac{4}{\pi}\,dx
+= \frac{2}{\pi}\sin\theta.
+\]
+
+\subsection{Integrarea după $\theta$}
+
+\[
+P(A) = \frac{2}{\pi} \int_0^{\pi/2} \sin\theta\,d\theta
+= \frac{2}{\pi}.
+\]
+
+\section{Interpretare geometrică}
+
+Spațiul cazurilor posibile este dreptunghiul
+\[
+\left[0,\frac{1}{2}\right]\times\left[0,\frac{\pi}{2}\right],
+\]
+cu aria totală:
+\[
+A_{\text{total}} = \frac{\pi}{4}.
+\]
+
+Zona favorabilă este sub curba $x=\frac{1}{2}\sin\theta$, cu aria:
+\[
+A_{\text{fav}} = \int_0^{\pi/2} \frac{1}{2}\sin\theta\,d\theta = \frac{1}{2}.
+\]
+
+Rezultă:
+\[
+P(A) = \frac{A_{\text{fav}}}{A_{\text{total}}}
+= \frac{2}{\pi}.
+\]
+
+\section{Concluzie}
+
+Probabilitatea ca acul să intersecteze o dreaptă este:
+\[
+\boxed{P = \frac{2}{\pi}}.
+\]
+
+\newpage
+
+\noindent{\Huge \textbf{B}}\par
+
+\section{Modelul probabilistic pentru cruce}
+
+Considerăm planul secționat de dreptele orizontale
+\[
+y = n, \quad n \in \mathbb{Z},
+\]
+aflate la distanță $1$ una față de cealaltă. Pe acest plan aruncăm aleator o cruce formată din două ace de lungime $1$, perpendiculare între ele și având același centru.
+
+Notăm cu $Z$ numărul total de intersecții ale crucii cu dreptele planului.
+
+Datorită periodicității configurației, este suficient să analizăm poziția crucii într-o singură bandă delimitată de două drepte consecutive. Introducem următoarele variabile aleatoare:
+\[
+X = \text{distanța de la centrul crucii la cea mai apropiată dreaptă}, 
+\quad X \in \left[0,\frac{1}{2}\right],
+\]
+\[
+\Theta = \text{unghiul dintre unul dintre ace și direcția dreptei}, 
+\quad \Theta \in \left[0,\frac{\pi}{2}\right].
+\]
+
+Presupunem că $X$ și $\Theta$ sunt independente și uniform distribuite pe intervalele lor.
+
+\section{Scrierea lui $Z$ ca sumă de indicatori}
+
+Definim variabilele indicator:
+\[
+I_1 =
+\begin{cases}
+1, & \text{dacă primul ac intersectează o dreaptă},\\
+0, & \text{altfel},
+\end{cases}
+\qquad
+I_2 =
+\begin{cases}
+1, & \text{dacă al doilea ac intersectează o dreaptă},\\
+0, & \text{altfel}.
+\end{cases}
+\]
+
+Numărul total de intersecții este:
+\[
+Z = I_1 + I_2.
+\]
+
+\section{Calculul valorii așteptate}
+
+Fiecare ac este de lungime $1$ și se află în aceeași configurație ca acul lui Buffon clasic. Prin urmare,
+\[
+P(I_1 = 1) = P(I_2 = 1) = \frac{2}{\pi}.
+\]
+
+Rezultă:
+\[
+\mathbb{E}(Z) = \mathbb{E}(I_1) + \mathbb{E}(I_2)
+= \frac{4}{\pi}.
+\]
+
+În consecință,
+\[
+\mathbb{E}\!\left(\frac{Z}{2}\right) = \frac{1}{2}\mathbb{E}(Z) = \frac{2}{\pi},
+\]
+deci $\frac{Z}{2}$ este un estimator neabiazat pentru valoarea $\frac{2}{\pi}$.
+
+\section{Calculul varianței}
+
+Pentru a evalua eficiența estimatorului $\frac{Z}{2}$, calculăm varianța sa:
+\[
+\mathrm{Var}\!\left(\frac{Z}{2}\right) = \frac{1}{4}\mathrm{Var}(Z),
+\qquad
+\mathrm{Var}(Z) = \mathbb{E}(Z^2) - [\mathbb{E}(Z)]^2.
+\]
+
+Deoarece $Z = I_1 + I_2$, avem:
+\[
+Z^2 = (I_1 + I_2)^2 = I_1 + I_2 + 2I_1 I_2 = Z + 2I_1 I_2,
+\]
+folosind faptul că $I_1^2 = I_1$ și $I_2^2 = I_2$.
+
+Rezultă:
+\[
+\mathbb{E}(Z^2) = \mathbb{E}(Z) + 2\mathbb{E}(I_1 I_2).
+\]
+
+\section{Probabilitatea ca ambele ace să intersecteze o dreaptă}
+
+Primul ac intersectează o dreaptă dacă:
+\[
+X \le \frac{1}{2}\sin\Theta,
+\]
+iar al doilea ac, fiind perpendicular, intersectează o dreaptă dacă:
+\[
+X \le \frac{1}{2}\cos\Theta.
+\]
+
+Prin urmare, ambele ace intersectează o dreaptă dacă și numai dacă:
+\[
+X \le \frac{1}{2}\min(\sin\Theta, \cos\Theta).
+\]
+
+Observăm că pe intervalul $\left[0,\frac{\pi}{2}\right]$ funcțiile $\sin\theta$ și $\cos\theta$ se intersectează în $\theta = \frac{\pi}{4}$. Prin integrare pe domeniul corespunzător se obține:
+\[
+\mathbb{E}(I_1 I_2) = P(I_1 = 1, I_2 = 1)
+= \frac{4 - 2\sqrt{2}}{\pi}.
+\]
+
+\section{Rezultatul final pentru varianță}
+
+Înlocuind în expresia varianței:
+\[
+\mathrm{Var}(Z) = \frac{12 - 4\sqrt{2}}{\pi} - \frac{16}{\pi^2},
+\]
+și
+\[
+\mathrm{Var}\!\left(\frac{Z}{2}\right)
+= \frac{3 - \sqrt{2}}{\pi} - \frac{4}{\pi^2}.
+\]
+
+\section{Concluzie}
+
+Atât metoda bazată pe acul lui Buffon, cât și metoda bazată pe cruce conduc la estimatori neabiazați pentru $\frac{2}{\pi}$. Totuși, varianța estimatorului obținut prin utilizarea crucii este mai mică decât cea a estimatorului bazat pe un singur ac. Prin urmare, pentru același număr de aruncări, algoritmul aleator bazat pe cruce oferă o estimare mai stabilă și mai precisă a valorii lui $\pi$.
+
+\newpage
+
+\noindent{\Huge \textbf{C}}\par
+\section{Generalizarea problemei acului lui Buffon}
+
+Considerăm un plan pe care sunt trasate dreptele orizontale
+\[
+y = nd, \quad n \in \mathbb{Z},
+\]
+aflate la distanță $d>0$ una față de cealaltă. Pe acest plan aruncăm aleator un ac de lungime $L$, cu $L<d$.
+
+Dorim să determinăm probabilitatea ca acul să intersecteze cel puțin una dintre drepte și să arătăm că aceasta este:
+\[
+P = \frac{2L}{\pi d}.
+\]
+
+\subsection{Modelarea aleatoare}
+
+Datorită periodicității configurației (drepte paralele la distanță $d$), este suficient să analizăm poziția acului într-o singură bandă delimitată de două drepte consecutive, de exemplu între
+\[
+y=0 \quad \text{și} \quad y=d.
+\]
+
+Introducem următoarele variabile aleatoare:
+\[
+X = \text{distanța de la centrul acului la cea mai apropiată dreaptă}, 
+\quad X \in \left[0,\frac{d}{2}\right],
+\]
+\[
+\Theta = \text{unghiul dintre ac și direcția dreptei (axa orizontală)}, 
+\quad \Theta \in \left[0,\frac{\pi}{2}\right].
+\]
+
+Presupunem că:
+\begin{itemize}
+  \item centrul acului este uniform distribuit în bandă $\Rightarrow X \sim U\!\left(0,\frac{d}{2}\right)$;
+  \item orientarea acului este complet aleatoare $\Rightarrow \Theta \sim U\!\left(0,\frac{\pi}{2}\right)$;
+  \item variabilele $X$ și $\Theta$ sunt independente.
+\end{itemize}
+
+Densitățile marginale sunt:
+\[
+f_X(x) = \frac{2}{d}, \quad x \in \left[0,\frac{d}{2}\right],
+\qquad
+f_\Theta(\theta) = \frac{2}{\pi}, \quad \theta \in \left[0,\frac{\pi}{2}\right].
+\]
+
+Prin independență, densitatea comună este:
+\[
+f_{X,\Theta}(x,\theta) = \frac{4}{\pi d},
+\]
+pentru $(x,\theta)\in\left[0,\frac{d}{2}\right]\times\left[0,\frac{\pi}{2}\right]$, și $0$ în rest.
+
+\subsection{Condiția geometrică de intersecție}
+
+Acul are lungime $L$, astfel încât distanța de la centru la fiecare capăt este $\frac{L}{2}$.
+
+Proiecția verticală a jumătății de ac pe direcția normală la drepte este:
+\[
+\frac{L}{2}\sin\Theta.
+\]
+
+Acul intersectează o dreaptă dacă și numai dacă:
+\[
+X \le \frac{L}{2}\sin\Theta.
+\]
+
+Observăm că ipoteza $L<d$ garantează că acul nu poate intersecta mai mult de o dreaptă (probabilitatea de a intersecta exact două drepte este zero).
+
+\subsection{Calculul probabilității}
+
+Definim evenimentul:
+\[
+A = \{\text{acul intersectează cel puțin o dreaptă}\}
+= \{(X,\Theta)\mid X \le \tfrac{L}{2}\sin\Theta\}.
+\]
+
+Probabilitatea dorită este:
+\[
+P(A) = \int_0^{\pi/2} \int_0^{\frac{L}{2}\sin\theta}
+f_{X,\Theta}(x,\theta)\,dx\,d\theta.
+\]
+
+Înlocuind densitatea comună:
+\[
+P(A)
+= \int_0^{\pi/2} \int_0^{\frac{L}{2}\sin\theta}
+\frac{4}{\pi d}\,dx\,d\theta.
+\]
+
+Integrarea după $x$ conduce la:
+\[
+\int_0^{\frac{L}{2}\sin\theta} \frac{4}{\pi d}\,dx
+= \frac{2L}{\pi d}\sin\theta.
+\]
+
+Prin urmare:
+\[
+P(A) = \frac{2L}{\pi d} \int_0^{\pi/2} \sin\theta\,d\theta.
+\]
+
+Cum
+\[
+\int_0^{\pi/2} \sin\theta\,d\theta = 1,
+\]
+obținem rezultatul final:
+\[
+\boxed{P(A) = \frac{2L}{\pi d}}.
+\]
+
+
+\newpage
+\noindent{\Huge \textbf{D}}\par
+\section{Intersecția unui ac fix cu o linie aleatoare}
+
+Considerăm un ac de lungime $L$, fixat într-un plan, și notăm cu $C$ cercul de diametru $d$, având centrul în mijlocul acului. Presupunem că $L<d$. Fie $\lambda$ o linie aleatoare din plan, a cărei direcție și distanță față de centrul cercului $C$ sunt variabile aleatoare independente și uniform distribuite pe intervalele
+\[
+[0,\pi], \qquad \text{respectiv} \qquad \left[0,\frac{d}{2}\right].
+\]
+
+Scopul este de a determina probabilitatea ca linia $\lambda$ să intersecteze acul.
+
+\subsection{Modelarea aleatoare}
+
+Fixăm un sistem de coordonate carteziene în plan, cu originea în centrul acului. Fără pierderea generalității, considerăm acul așezat pe axa $Ox$, cu capetele în punctele
+\[
+A=\left(-\frac{L}{2},0\right), 
+\qquad 
+B=\left(\frac{L}{2},0\right).
+\]
+
+O linie $\lambda$ din plan poate fi descrisă în forma normală (Hesse) prin doi parametri:
+\begin{itemize}
+  \item unghiul $\alpha\in[0,\pi]$ dintre linie și axa $Ox$;
+  \item distanța $R\in\left[0,\frac{d}{2}\right]$ de la origine la linie, măsurată pe perpendiculară.
+\end{itemize}
+
+Prin ipoteză, variabilele aleatoare $\alpha$ și $R$ sunt independente și uniform distribuite pe intervalele menționate. Spațiul probabil este astfel:
+\[
+\Omega=[0,\pi]\times\left[0,\frac{d}{2}\right],
+\]
+echipat cu densitatea de probabilitate constantă:
+\[
+f_{\alpha,R}(\alpha,R)=\frac{1}{\pi}\cdot\frac{2}{d}=\frac{2}{\pi d}.
+\]
+
+\subsection{Condiția de intersecție}
+
+Linia $\lambda$ intersectează acul dacă și numai dacă distanța de la linie la axa $Ox$ este mai mică sau egală cu proiecția semilungimii acului pe direcția normală la linie.
+
+Dacă $\alpha$ este unghiul dintre ac și linie, atunci componenta semilungimii acului pe direcția perpendiculară pe linie este:
+\[
+\frac{L}{2}\sin\alpha.
+\]
+
+Rezultă că linia $\lambda$ intersectează acul dacă și numai dacă:
+\[
+0 \le R \le \frac{L}{2}\sin\alpha.
+\]
+
+Deoarece $L<d$, avem:
+\[
+\frac{L}{2}\sin\alpha \le \frac{L}{2} < \frac{d}{2},
+\quad \forall \alpha\in[0,\pi],
+\]
+astfel încât această condiție este compatibilă cu domeniul de variație al lui $R$.
+
+\subsection{Calculul probabilității}
+
+Probabilitatea cerută este aria regiunii favorabile din spațiul probabil, ponderată cu densitatea uniformă:
+\[
+P(\lambda \text{ intersectează acul})
+=
+\iint_{\{0\le R\le \frac{L}{2}\sin\alpha\}}
+f_{\alpha,R}(\alpha,R)\,dR\,d\alpha.
+\]
+
+Înlocuind densitatea:
+\[
+P
+=
+\frac{2}{\pi d}
+\int_0^\pi
+\left(
+\int_0^{\frac{L}{2}\sin\alpha} dR
+\right)
+d\alpha.
+\]
+
+Calculând integrala interioară:
+\[
+\int_0^{\frac{L}{2}\sin\alpha} dR
+=
+\frac{L}{2}\sin\alpha.
+\]
+
+Prin urmare:
+\[
+P
+=
+\frac{2}{\pi d}
+\int_0^\pi
+\frac{L}{2}\sin\alpha\,d\alpha
+=
+\frac{L}{\pi d}
+\int_0^\pi \sin\alpha\,d\alpha.
+\]
+
+Cum
+\[
+\int_0^\pi \sin\alpha\,d\alpha = 2,
+\]
+rezultă:
+\[
+\boxed{
+P = \frac{2L}{\pi d}
+}.
+\]
+
+\subsection{Concluzie}
+
+Probabilitatea ca un ac fix să fie intersectat de o linie aleatoare, aleasă cu direcție și distanță față de centru uniforme și independente, este:
+\[
+P = \frac{2L}{\pi d}.
+\]
+
+Aceasta coincide cu probabilitatea clasică din problema acului lui Buffon, demonstrând că formularea „acul aleator – linii fixe” și formularea duală „acul fix – linie aleatoare” sunt echivalente din punct de vedere probabilistic.
+
+\newpage
+\noindent{\Huge \textbf{E}}\par
+\section{Acul într-o rețea dreptunghiulară de drepte paralele}
+
+\subsection{Modelarea aleatoare}
+
+Fixăm un sistem de coordonate astfel încât:
+\begin{itemize}
+  \item dreptele verticale să fie de forma $x = k d_1$;
+  \item dreptele orizontale să fie de forma $y = k d_2$, $k \in \mathbb{Z}$.
+\end{itemize}
+
+Datorită periodicitații, este suficient să analizăm poziția acului într-un singur dreptunghi fundamental:
+\[
+[0,d_1] \times [0,d_2].
+\]
+
+\subsection{Variabilele aleatoare}
+
+Notăm:
+\begin{itemize}
+  \item $\alpha$ – unghiul acului față de direcția verticală (axa $Oy$). Prin simetrie:
+  \[
+  \alpha \sim U\!\left[0,\frac{\pi}{2}\right], \qquad
+  f_\alpha(\alpha) = \frac{2}{\pi}.
+  \]
+
+  \item $X$ – distanța de la centrul acului la cea mai apropiată dreaptă verticală:
+  \[
+  X \sim U\!\left[0,\frac{d_1}{2}\right], \qquad
+  f_X(x) = \frac{2}{d_1}.
+  \]
+
+  \item $Y$ – distanța de la centrul acului la cea mai apropiată dreaptă orizontală:
+  \[
+  Y \sim U\!\left[0,\frac{d_2}{2}\right], \qquad
+  f_Y(y) = \frac{2}{d_2}.
+  \]
+\end{itemize}
+
+Presupunem că $\alpha$, $X$ și $Y$ sunt independente. Prin urmare, densitatea comună este constantă:
+\[
+f_{\alpha,X,Y}(\alpha,x,y)
+= f_\alpha(\alpha)\,f_X(x)\,f_Y(y)
+= \frac{2}{\pi}\cdot\frac{2}{d_1}\cdot\frac{2}{d_2}
+= \frac{8}{\pi d_1 d_2},
+\]
+pentru
+\[
+\alpha\in\left[0,\frac{\pi}{2}\right], \quad
+x\in\left[0,\frac{d_1}{2}\right], \quad
+y\in\left[0,\frac{d_2}{2}\right].
+\]
+
+\subsection{Condițiile de intersecție}
+
+\subsubsection*{Intersecție cu o dreaptă verticală}
+
+Dacă acul face unghiul $\alpha$ cu verticala, atunci proiecția semilungimii acului pe direcția orizontală (perpendiculară pe dreptele verticale) este
+\[
+\frac{L}{2}\sin\alpha.
+\]
+
+Acul atinge o dreaptă verticală dacă și numai dacă:
+\[
+X \le \frac{L}{2}\sin\alpha.
+\]
+
+\subsubsection*{Intersecție cu o dreaptă orizontală}
+
+Față de direcția orizontală, acul face unghiul $\frac{\pi}{2}-\alpha$, deci proiecția semilungimii acului pe direcția verticală este
+\[
+\frac{L}{2}\cos\alpha.
+\]
+
+Acul atinge o dreaptă orizontală dacă și numai dacă:
+\[
+Y \le \frac{L}{2}\cos\alpha.
+\]
+
+Observăm că, deoarece $L < \min\{d_1,d_2\}$,
+\[
+\frac{L}{2}\sin\alpha \le \frac{L}{2} < \frac{d_1}{2},
+\qquad
+\frac{L}{2}\cos\alpha \le \frac{L}{2} < \frac{d_2}{2},
+\]
+pentru orice $\alpha\in\left[0,\frac{\pi}{2}\right]$, deci limitele de sus rămân în intervalele lui $X$, respectiv $Y$.
+
+Definim evenimentele:
+\[
+A = \{\text{acul intersectează o dreaptă verticală}\}, \qquad
+B = \{\text{acul intersectează o dreaptă orizontală}\}.
+\]
+
+Noi vrem:
+\[
+P(A \cup B) = P(A) + P(B) - P(A \cap B).
+\]
+
+\subsection{Calculul lui \texorpdfstring{$P(A)$}}
+
+Condiționat pe $\alpha$, avem:
+\[
+P(A \mid \alpha) =
+P\!\left(X \le \frac{L}{2}\sin\alpha\right)
+=
+\frac{\frac{L}{2}\sin\alpha}{\frac{d_1}{2}}
+= \frac{L}{d_1}\sin\alpha.
+\]
+
+Apoi mediem după $\alpha$:
+\[
+P(A)
+= \int_0^{\pi/2} P(A\mid\alpha)\,f_\alpha(\alpha)\,d\alpha
+= \int_0^{\pi/2} \frac{L}{d_1}\sin\alpha\cdot\frac{2}{\pi}\,d\alpha
+= \frac{2L}{\pi d_1} \int_0^{\pi/2}\sin\alpha\,d\alpha
+= \frac{2L}{\pi d_1}.
+\]
+
+Analog, pentru evenimentul $B$:
+\[
+P(B) = \frac{2L}{\pi d_2}.
+\]
+
+\subsection{Calculul lui \texorpdfstring{$P(A\cap B)$}{P(A∩B)}}
+
+Condiționat pe $\alpha$, evenimentele
+\[
+\{X \le \tfrac{L}{2}\sin\alpha\},
+\qquad
+\{Y \le \tfrac{L}{2}\cos\alpha\}
+\]
+sunt independente (deoarece $X$ și $Y$ sunt independente). Deci:
+\[
+P(A\cap B \mid \alpha)
+=
+P\!\left(X \le \tfrac{L}{2}\sin\alpha\right)
+P\!\left(Y \le \tfrac{L}{2}\cos\alpha\right)
+=
+\frac{L}{d_1}\sin\alpha \cdot \frac{L}{d_2}\cos\alpha
+=
+\frac{L^2}{d_1 d_2}\sin\alpha\cos\alpha.
+\]
+
+Mediem după $\alpha$:
+\[
+P(A\cap B)
+= \int_0^{\pi/2} P(A\cap B\mid\alpha)\,f_\alpha(\alpha)\,d\alpha
+= \int_0^{\pi/2} \frac{L^2}{d_1 d_2}\sin\alpha\cos\alpha \cdot \frac{2}{\pi}\,d\alpha
+= \frac{2L^2}{\pi d_1 d_2}\int_0^{\pi/2}\sin\alpha\cos\alpha\,d\alpha.
+\]
+
+Dar
+\[
+\int_0^{\pi/2}\sin\alpha\cos\alpha\,d\alpha
+= \frac{1}{2}\int_0^{\pi/2}\sin(2\alpha)\,d\alpha
+= \frac{1}{2}\cdot 1
+= \frac{1}{2},
+\]
+deci
+\[
+P(A\cap B) = \frac{L^2}{\pi d_1 d_2}.
+\]
+
+\subsection{Probabilitatea totală}
+
+Aplicăm formula de includere-excludere:
+\[
+P(A\cup B)
+= P(A) + P(B) - P(A\cap B)
+= \frac{2L}{\pi d_1} + \frac{2L}{\pi d_2}
+   - \frac{L^2}{\pi d_1 d_2}.
+\]
+
+Scoatem factorul comun:
+\[
+P(A\cup B)
+=
+\frac{L}{\pi d_1 d_2}
+\bigl(2d_2 + 2d_1 - L\bigr)
+=
+\frac{L\bigl(2d_1 + 2d_2 - L\bigr)}{\pi d_1 d_2}.
+\]
+
+\newpage
+\noindent{\Huge \textbf{F}}\par
+\section{Tipul strategiei aleatoare utilizate}
+
+Strategia aleatoare folosită în simulările prezentate (problema acului lui Buffon, crucea, respectiv gridul bidimensional) este de tip \emph{Monte Carlo}.
+
+\subsection{Algoritmi Monte Carlo}
+
+Un algoritm Monte Carlo se caracterizează prin următoarele proprietăți:
+\begin{itemize}
+  \item timpul de execuție este determinist, fiind fixat în prealabil (de exemplu, printr-un număr $N$ de simulări);
+  \item rezultatul obținut este aproximativ, nu exact;
+  \item există o probabilitate nenulă de eroare, însă aceasta scade pe măsură ce crește numărul de simulări;
+  \item precizia rezultatului depinde de legea numerelor mari.
+\end{itemize}
+
+În simulările realizate:
+\begin{itemize}
+  \item se execută un număr fix de aruncări aleatoare ale acului;
+  \item se estimează o probabilitate geometrică sau valoarea constantei $\pi$;
+  \item rezultatul nu este garantat exact, dar converge către valoarea teoretică atunci când $N \to \infty$.
+\end{itemize}
+
+Aceste caracteristici corespund exact definiției unui algoritm Monte Carlo.
+
+\subsection{De ce strategia NU este de tip Las Vegas}
+
+Un algoritm de tip Las Vegas are proprietăți diferite:
+\begin{itemize}
+  \item rezultatul furnizat este întotdeauna corect;
+  \item timpul de execuție este aleator, nefiind cunoscut în avans.
+\end{itemize}
+
+În cazul simulărilor analizate:
+\begin{itemize}
+  \item nu se garantează obținerea valorii exacte (de exemplu, $\pi$ nu este determinat exact);
+  \item algoritmul se oprește după un număr fix de pași, deci timpul de execuție nu este aleator.
+\end{itemize}
+
+Prin urmare, strategia utilizată nu poate fi clasificată ca fiind de tip Las Vegas.
+
+\subsection{Exemplu de algoritm Las Vegas}
+
+Un exemplu clasic de algoritm Las Vegas este căutarea aleatoare a unui element într-un vector: se aleg poziții aleator până când elementul dorit este găsit. Algoritmul se oprește doar atunci când rezultatul corect este obținut, însă numărul de pași necesari este aleator.
+
+\begin{verbatim}
+las_vegas_search <- function(v, x) {
+  n <- length(v)
+  repeat {
+    i <- sample(1:n, 1)
+    if (v[i] == x) {
+      return(i)
+    }
+  }
+}
+\end{verbatim}
+
+În acest caz:
+\begin{itemize}
+  \item corectitudinea rezultatului este garantată;
+  \item timpul de execuție nu este determinist.
+\end{itemize}
+
+\subsection{Concluzie}
+
+Strategia aleatoare utilizată în simulările de tip Buffon este una Monte Carlo, deoarece algoritmul rulează un număr fix de pași și furnizează o estimare probabilistică a rezultatului, a cărei precizie depinde de numărul de simulări efectuate.
+
+În contrast, algoritmii de tip Las Vegas garantează corectitudinea rezultatului, dar au un timp de execuție aleator.
+
+\end{document}
