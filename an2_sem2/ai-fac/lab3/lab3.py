@@ -1,4 +1,6 @@
+from typing import final
 import numpy as np
+from heapq import heappop, heappush, heapify
 
 class KnnClasisifier:
     def __init__ (self, train_images, train_labels):
@@ -6,28 +8,41 @@ class KnnClasisifier:
         self.train_images = train_images
 
     def classify_image (self, test_image, num_neigbors = 3, metric = 'l2'):
-
-
+        h = []
         distance = []
-        for i in self.train_images:
+        for i in range(len(self.train_images)):
             distance = 0
             if metric == 'l1':
-                distance = np.sum(np.abs(self.train_images - test_image), axis=1)
+                distance = np.sum(np.abs(self.train_images[i] - test_image))
             elif metric == 'l2':
-                distance = np.sqrt(np.sum((self.train_images - test_image) ** 2, axis=1))
+                distance = np.sqrt(np.sum((self.train_images[i] - test_image) ** 2))
+            h.append((distance, self.train_labels[i]))
+        h.sort()
+        
+        final_class = np.array([], dtype=int)
+        for i in range(num_neigbors):
+            final_class = np.append(final_class, int(h[i][1])) 
+        final_class = np.bincount(final_class)
+        max_class = np.where( final_class == np.amax(final_class))
+        return max_class[0][0]
+
+        
 
 
-def values_to_bins(matrice_initiala, bins):
-    x_to_bins = np.digitize(matrice_initiala, bins) 
-    return x_to_bins
 
 num_bins = 11
 train_images = np.loadtxt('data/train_images.txt') # incarcam imaginile
 test_images = np.loadtxt('data/test_images.txt') # incarcam imaginile
-train_labels = np.loadtxt('train_labels.txt') # incarcam imaginile
-test_labels = np.loadtxt('test_labels.txt') # incarcam imaginile
-bins = np.linspace(start=0, stop=255, num=num_bins+1) # returneaza intervalele
-train_disc = values_to_bins(train_images, bins)
-test_disc = values_to_bins(test_images, bins)
+train_labels = np.loadtxt('data/train_labels.txt') # incarcam imaginile
+test_labels = np.loadtxt('data/test_labels.txt') # incarcam imaginile
+clasificator = KnnClasisifier(train_images=train_images, train_labels=train_labels)
+corecte = 0
 
-print(len(train_images))
+for i in range(len(test_images)):
+    clasa = clasificator.classify_image(test_image=test_images[i], num_neigbors=3, metric='l2')
+    if clasa == test_labels[i]:
+        corecte+=1
+
+print(corecte/len(test_images))
+
+# print(len(train_images))
