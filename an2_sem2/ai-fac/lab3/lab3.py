@@ -1,6 +1,7 @@
 from typing import final
 import numpy as np
 from heapq import heappop, heappush, heapify
+import matplotlib.pyplot as plt
 
 class KnnClasisifier:
     def __init__ (self, train_images, train_labels):
@@ -36,13 +37,30 @@ test_images = np.loadtxt('data/test_images.txt') # incarcam imaginile
 train_labels = np.loadtxt('data/train_labels.txt') # incarcam imaginile
 test_labels = np.loadtxt('data/test_labels.txt') # incarcam imaginile
 clasificator = KnnClasisifier(train_images=train_images, train_labels=train_labels)
-corecte = 0
+corecte_totale_l2 = []
+corecte_totale_l1 = []
+vecini = [1,3,5,7,9]
 
-for i in range(len(test_images)):
-    clasa = clasificator.classify_image(test_image=test_images[i], num_neigbors=3, metric='l2')
-    if clasa == test_labels[i]:
-        corecte+=1
 
-print(corecte/len(test_images))
+for j in vecini:
+    corecte = 0
+    for i in range(len(test_images)):
+        clasa = clasificator.classify_image(test_image=test_images[i], num_neigbors=j, metric='l2')
+        if clasa == test_labels[i]:
+            corecte+=1
+    corecte_totale_l2.append(corecte/len(test_images))
+
+    corecte = 0
+    for i in range(len(test_images)):
+        clasa = clasificator.classify_image(test_image=test_images[i], num_neigbors=j, metric='l1')
+        if clasa == test_labels[i]:
+            corecte+=1
+    corecte_totale_l1.append(corecte/len(test_images))
+
+plt.plot(vecini, corecte_totale_l2)
+plt.plot(vecini, corecte_totale_l1)
+plt.xlabel("vecini")
+plt.ylabel("corecte_totale")
+plt.show()
 
 # print(len(train_images))
