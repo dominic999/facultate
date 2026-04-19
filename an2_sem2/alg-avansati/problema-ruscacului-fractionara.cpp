@@ -14,7 +14,6 @@ int main(){
   int greutati[n+1];
   int valori[n+1];
   vector<pair<float, int>> raport(n+1);
-  cout<<n<<" "<<g<<endl<<endl;
 
   for (int i = 0; i < n; i++){
     int x;
@@ -29,42 +28,25 @@ int main(){
     raport[i+1].first = (float)valori[i+1] / greutati[i+1];
     raport[i+1].second = i+1;
   }
-  sort(raport.begin(), raport.end());
+  sort(raport.begin() + 1, raport.end());
 
-  for(int i = 1; i <= n; i++){
-    cout<<valori[i]<<"::"<<greutati[i]<<endl;
-  }
-  cout<<endl;
-
-
-  for(int i = 1; i <= n+1; i++){
-    cout<<raport[i].first<<"::"<<raport[i].second<<endl;
-  }
-
-  int suma = 0;
-  for(int i = n; i > 0 && suma < g; i--){
-    if (suma + greutati[raport[i].second] <= g){
-      suma += valori[raport[i].second];
+  int gretutate_totala = 0;
+  float valoare_totala = 0;
+  for(int i = n; i > 0 && gretutate_totala < g; i--){
+    if (gretutate_totala + greutati[raport[i].second] <= g){
+      gretutate_totala += greutati[raport[i].second];
+      valoare_totala += valori[raport[i].second];
       continue;
     }
-    int rest = g - suma;
-    float procent = (float) rest * 100 / g;
+    int rest = g - gretutate_totala;
+    float procent = rest / greutati[raport[i].second];
     float adaguare = procent * valori[raport[i].second];
-    suma+=adaguare;
-    cout<<"adaugare: "<<adaguare<<endl;
-
+    // gretutate_totala+=adaguare;
+    valoare_totala += adaguare;
+    break;
   }
-  cout<<suma<<endl;
+  cout<<valoare_totala<<endl;
 
-  // vector<int> dp(g + 1, 0);
-  //
-  // for (int i = 1; i <= n; i++) {
-  //     for (int j = g; j >= greutati[i]; j--) {
-  //         dp[j] = max(dp[j], dp[j - greutati[i]] + valori[i]);
-  //     }
-  // }
-
-  // cout << dp[g] << '\n';
 
   return 0;
 }
