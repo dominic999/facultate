@@ -11,7 +11,8 @@ MESSAGE = "Salut de la clientul Scapy!"
 
 try:
     # Crează pachetul IP
-    packet = IP(dst=SERVER_IP) / UDP(dport=SERVER_PORT) / Raw(load=MESSAGE)
+    packet = IP(src='172.203.0.2', dst=SERVER_IP) / UDP(sport=1234, dport=SERVER_PORT) / Raw(load=MESSAGE)
+
 
     # Trimite pachetul
     print(f"Trimit pachet UDP către {SERVER_IP}:{SERVER_PORT}...")

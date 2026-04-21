@@ -1,0 +1,25 @@
+services:
+  server:
+    build: ./app
+    container_name: server
+    volumes: 
+      - ./app:/app
+    working_dir: /app
+    tty: true
+    stdin_open: true
+    networks:
+      - labnet
+
+  client:
+    build: ./app
+    container_name: client
+    volumes: 
+      - ./app:/app
+    working_dir: /app
+    tty: true
+    stdin_open: true
+    networks:
+      - labnet
+
+networks:
+  labnet:
