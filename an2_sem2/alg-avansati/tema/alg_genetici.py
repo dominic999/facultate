@@ -2,10 +2,18 @@ import random
 import bisect
 import math
 
+fisier_input = open("input.txt", 'r');
 
 def calculeaza_l(L, R, precizie):
     return math.ceil(math.log2((R - L) * (10 ** precizie)))
 
+def gasire_minim(cromozomi):
+    index_minim = 0;
+    for i in range(len(cromozomi)):
+        cromozom = cromozomi[i]
+        if cromozom < cromozomi[index_minim]:
+            index_minim = i
+    return index_minim
 
 def generare_cromozomi(nr_cromozomi, nr_biti):
     cromozomi = []
@@ -27,34 +35,18 @@ def fitness_valoare(val_cromozom, a, b, c):
     return a * val_cromozom ** 2 + b * val_cromozom + c
 
 
-def scrie_populatie(fisier, titlu, cromozomi, valori_x, fitnessuri):
-    fisier.write(f"{titlu}\n")
-    for index, cromozom in enumerate(cromozomi):
-        fisier.write(
-            f"{index + 1}. Bi = {cromozom} | "
-            f"Xi = {valori_x[index]:.6f} | "
-            f"f(Xi) = {fitnessuri[index]:.6f}\n"
-        )
-
-
-def scrie_cromozomi(fisier, titlu, cromozomi):
-    fisier.write(f"{titlu}\n")
-    for index, cromozom in enumerate(cromozomi):
-        fisier.write(f"{index + 1}. {cromozom}\n")
-
-
-nr_cromozomi = int(input("nr_crom:"))
-x = float(input("x:"))
-y = float(input("y:"))
-a = float(input("a"))
-b = float(input("b"))
-c = float(input("c"))
-precizie = int(input("precizie: "))
-prob_recomb = float(input("prob_recomb: "))
+nr_cromozomi = int(fisier_input.readline().strip())
+x = float(fisier_input.readline().strip())
+y = float(fisier_input.readline().strip())
+a = float(fisier_input.readline().strip())
+b = float(fisier_input.readline().strip())
+c = float(fisier_input.readline().strip())
+precizie = int(fisier_input.readline().strip())
+prob_recomb = float(fisier_input.readline().strip())
 prob_recomb /= 100
-prob_mutatie = float(input("prob_mutatie: "))
+prob_mutatie = float(fisier_input.readline().strip())
 prob_mutatie /= 100
-etape = int(input("etape: "))
+etape = int(fisier_input.readline().strip())
 
 l = calculeaza_l(x, y, precizie)
 cromozomi = generare_cromozomi(nr_cromozomi, l)
@@ -87,6 +79,7 @@ for iteratie in range(etape):
     intervale[-1] = 1.0
 
     populatie_noua = [cromozomi[index_fitness_maxim]]
+    val_element_elitist = cromozomi[index_fitness_maxim];
     selectii_ruleta = []
     for _ in range(nr_cromozomi - 1):
         u = random.random()
