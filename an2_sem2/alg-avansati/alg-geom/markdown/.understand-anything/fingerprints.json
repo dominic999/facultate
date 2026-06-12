@@ -1,0 +1,117 @@
+{
+  "version": "1.0.0",
+  "gitCommitHash": "994ac38414459fdf7bde6902557edf8e0be0e5d6",
+  "generatedAt": "2026-06-11T19:15:08.169Z",
+  "files": {
+    "aa-geom-c10.md": {
+      "filePath": "aa-geom-c10.md",
+      "contentHash": "0642b03cbf27ae0403db398a09395be139e01347d75f293990c013040df1e776",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 1190,
+      "hasStructuralAnalysis": true
+    },
+    "aa-geom-c11.md": {
+      "filePath": "aa-geom-c11.md",
+      "contentHash": "eb8aabdc50c22381083752afda7a3faf9664e06e1926898c889cc2d37cc74440",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 2972,
+      "hasStructuralAnalysis": true
+    },
+    "aa-geom-c12.md": {
+      "filePath": "aa-geom-c12.md",
+      "contentHash": "4e1f00615cc9b4f78d888f0468116c32f1ea64303669993317339fd4c1c08fef",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 2696,
+      "hasStructuralAnalysis": true
+    },
+    "aa-geom-c13_14.md": {
+      "filePath": "aa-geom-c13_14.md",
+      "contentHash": "b41af7d807be895161366f6eec544c77b117ab33744b8b2a31359ec4e50cc2e5",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 4349,
+      "hasStructuralAnalysis": true
+    },
+    "aa-geom-c8.md": {
+      "filePath": "aa-geom-c8.md",
+      "contentHash": "c83d06dab5a9ff279ca223a31a806d92ac22910e5f367d6af343bf16e23b7a00",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 3265,
+      "hasStructuralAnalysis": true
+    },
+    "aa-geom-c9.md": {
+      "filePath": "aa-geom-c9.md",
+      "contentHash": "6924a5edf5545286449b50469a035a87c20a15d205474a8c9d896f79c37fb46f",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 2319,
+      "hasStructuralAnalysis": true
+    },
+    "model-subiect-geom-aa.md": {
+      "filePath": "model-subiect-geom-aa.md",
+      "contentHash": "058e3b03a2afb00609a041b1a16be4d1694da7d1144745c800158ab926c6705a",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 320,
+      "hasStructuralAnalysis": true
+    },
+    "seminar5-geom-aa.md": {
+      "filePath": "seminar5-geom-aa.md",
+      "contentHash": "add81b9c6f214e033778870432b03eedc9ef7f6edbac539496ed1285964c7401",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 49,
+      "hasStructuralAnalysis": true
+    },
+    "seminar5-sol-geom-aa.md": {
+      "filePath": "seminar5-sol-geom-aa.md",
+      "contentHash": "9e4e8786df506387cd29f42eb839057723707c9f87dd9bfea078514c4ade6d9a",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 331,
+      "hasStructuralAnalysis": true
+    },
+    "seminar6-geom-aa.md": {
+      "filePath": "seminar6-geom-aa.md",
+      "contentHash": "33a4074f0a65318edd1965c3f16b02444ff9bb0d3c2342e3e9ac84638dcae4c3",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 61,
+      "hasStructuralAnalysis": true
+    },
+    "seminar6-sol-geom-aa.md": {
+      "filePath": "seminar6-sol-geom-aa.md",
+      "contentHash": "a8483a9eedd2bfb87cffbeed19cf9795572ce69fb46b2013834d595cd825786c",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 201,
+      "hasStructuralAnalysis": true
+    }
+  }
+}

@@ -1,0 +1,34 @@
+[
+  {
+    "id": "layer:course-lectures",
+    "name": "Course Lectures",
+    "description": "Primary lecture notes forming the computational geometry topic sequence from convex hulls through linear programming.",
+    "nodeIds": [
+      "document:aa-geom-c8.md",
+      "document:aa-geom-c9.md",
+      "document:aa-geom-c10.md",
+      "document:aa-geom-c11.md",
+      "document:aa-geom-c12.md",
+      "document:aa-geom-c13_14.md"
+    ]
+  },
+  {
+    "id": "layer:seminar-practice",
+    "name": "Seminar Practice",
+    "description": "Exercise sheets and worked solutions that practice lecture topics through concrete geometric problems.",
+    "nodeIds": [
+      "document:seminar5-geom-aa.md",
+      "document:seminar5-sol-geom-aa.md",
+      "document:seminar6-geom-aa.md",
+      "document:seminar6-sol-geom-aa.md"
+    ]
+  },
+  {
+    "id": "layer:assessment",
+    "name": "Assessment",
+    "description": "Exam-style review material that samples the lecture and seminar topics across the module.",
+    "nodeIds": [
+      "document:model-subiect-geom-aa.md"
+    ]
+  }
+]

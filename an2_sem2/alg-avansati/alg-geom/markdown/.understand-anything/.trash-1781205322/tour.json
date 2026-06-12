@@ -1,0 +1,62 @@
+[
+  {
+    "order": 1,
+    "title": "Start with convex hull foundations",
+    "description": "Begin with the C8 lecture to understand orientation predicates, point ratios, and the first hull algorithms used throughout later topics.",
+    "nodeIds": [
+      "document:aa-geom-c8.md"
+    ]
+  },
+  {
+    "order": 2,
+    "title": "Move from polygons to triangulations",
+    "description": "Study polygon triangulation, art gallery reasoning, then point-set triangulation to see how local geometric predicates scale to structural decompositions.",
+    "nodeIds": [
+      "document:aa-geom-c9.md",
+      "document:aa-geom-c10.md"
+    ]
+  },
+  {
+    "order": 3,
+    "title": "Study proximity structures",
+    "description": "Use the Voronoi lecture to connect nearest-site regions, Delaunay triangulations, sweep-line events, and DCEL planar subdivision representation.",
+    "nodeIds": [
+      "document:aa-geom-c11.md"
+    ]
+  },
+  {
+    "order": 4,
+    "title": "Follow sweep-line intersections",
+    "description": "Read the intersections lecture to understand event/status structures and output-sensitive detection for segment and polygon intersection problems.",
+    "nodeIds": [
+      "document:aa-geom-c12.md"
+    ]
+  },
+  {
+    "order": 5,
+    "title": "Finish with duality and optimization",
+    "description": "Use the final lecture to connect half-plane intersections, point-line duality, and linear programming formulations in geometry.",
+    "nodeIds": [
+      "document:aa-geom-c13_14.md"
+    ]
+  },
+  {
+    "order": 6,
+    "title": "Practice with seminar sheets",
+    "description": "Work through Seminar 5 and 6 exercise sheets, then compare against the solution files to consolidate hull, triangulation, and art gallery methods.",
+    "nodeIds": [
+      "document:seminar5-geom-aa.md",
+      "document:seminar5-sol-geom-aa.md",
+      "document:seminar6-geom-aa.md",
+      "document:seminar6-sol-geom-aa.md"
+    ]
+  },
+  {
+    "order": 7,
+    "title": "Check readiness with the exam model",
+    "description": "Use the model subject to review the full C8-C13/14 spread through multiple-choice and concise open problems.",
+    "nodeIds": [
+      "document:model-subiect-geom-aa.md"
+    ]
+  }
+]

@@ -1,0 +1,103 @@
+{
+  "projectName": "alg-geom-markdown",
+  "name": "alg-geom-markdown",
+  "description": "Markdown course materials for Advanced Algorithms computational geometry topics, including convex hulls, polygon and point-set triangulation, Voronoi diagrams, segment intersections, half-plane intersections, duality, and linear programming.",
+  "rawDescription": "Markdown notes, seminar exercises, solved exercises, and an exam model for the Advanced Algorithms computational geometry module.",
+  "languages": [
+    "markdown"
+  ],
+  "frameworks": [],
+  "files": [
+    {
+      "path": "aa-geom-c10.md",
+      "language": "markdown",
+      "sizeLines": 1189,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "aa-geom-c11.md",
+      "language": "markdown",
+      "sizeLines": 2971,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "aa-geom-c12.md",
+      "language": "markdown",
+      "sizeLines": 2695,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "aa-geom-c13_14.md",
+      "language": "markdown",
+      "sizeLines": 4348,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "aa-geom-c8.md",
+      "language": "markdown",
+      "sizeLines": 3264,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "aa-geom-c9.md",
+      "language": "markdown",
+      "sizeLines": 2318,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "model-subiect-geom-aa.md",
+      "language": "markdown",
+      "sizeLines": 319,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "seminar5-geom-aa.md",
+      "language": "markdown",
+      "sizeLines": 48,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "seminar5-sol-geom-aa.md",
+      "language": "markdown",
+      "sizeLines": 330,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "seminar6-geom-aa.md",
+      "language": "markdown",
+      "sizeLines": 60,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "seminar6-sol-geom-aa.md",
+      "language": "markdown",
+      "sizeLines": 200,
+      "fileCategory": "docs"
+    }
+  ],
+  "totalFiles": 11,
+  "filteredByIgnore": 3,
+  "estimatedComplexity": "small",
+  "stats": {
+    "filesScanned": 11,
+    "byCategory": {
+      "docs": 11
+    },
+    "byLanguage": {
+      "markdown": 11
+    }
+  },
+  "importMap": {
+    "aa-geom-c10.md": [],
+    "aa-geom-c11.md": [],
+    "aa-geom-c12.md": [],
+    "aa-geom-c13_14.md": [],
+    "aa-geom-c8.md": [],
+    "aa-geom-c9.md": [],
+    "model-subiect-geom-aa.md": [],
+    "seminar5-geom-aa.md": [],
+    "seminar5-sol-geom-aa.md": [],
+    "seminar6-geom-aa.md": [],
+    "seminar6-sol-geom-aa.md": []
+  }
+}

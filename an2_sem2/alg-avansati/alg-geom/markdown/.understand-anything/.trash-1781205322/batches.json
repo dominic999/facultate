@@ -1,0 +1,94 @@
+{
+  "schemaVersion": 1,
+  "algorithm": "louvain",
+  "totalFiles": 11,
+  "totalBatches": 1,
+  "exportsByPath": {},
+  "batches": [
+    {
+      "batchIndex": 1,
+      "files": [
+        {
+          "path": "aa-geom-c10.md",
+          "language": "markdown",
+          "sizeLines": 1189,
+          "fileCategory": "docs"
+        },
+        {
+          "path": "aa-geom-c11.md",
+          "language": "markdown",
+          "sizeLines": 2971,
+          "fileCategory": "docs"
+        },
+        {
+          "path": "aa-geom-c12.md",
+          "language": "markdown",
+          "sizeLines": 2695,
+          "fileCategory": "docs"
+        },
+        {
+          "path": "aa-geom-c13_14.md",
+          "language": "markdown",
+          "sizeLines": 4348,
+          "fileCategory": "docs"
+        },
+        {
+          "path": "aa-geom-c8.md",
+          "language": "markdown",
+          "sizeLines": 3264,
+          "fileCategory": "docs"
+        },
+        {
+          "path": "aa-geom-c9.md",
+          "language": "markdown",
+          "sizeLines": 2318,
+          "fileCategory": "docs"
+        },
+        {
+          "path": "model-subiect-geom-aa.md",
+          "language": "markdown",
+          "sizeLines": 319,
+          "fileCategory": "docs"
+        },
+        {
+          "path": "seminar5-geom-aa.md",
+          "language": "markdown",
+          "sizeLines": 48,
+          "fileCategory": "docs"
+        },
+        {
+          "path": "seminar5-sol-geom-aa.md",
+          "language": "markdown",
+          "sizeLines": 330,
+          "fileCategory": "docs"
+        },
+        {
+          "path": "seminar6-geom-aa.md",
+          "language": "markdown",
+          "sizeLines": 60,
+          "fileCategory": "docs"
+        },
+        {
+          "path": "seminar6-sol-geom-aa.md",
+          "language": "markdown",
+          "sizeLines": 200,
+          "fileCategory": "docs"
+        }
+      ],
+      "batchImportData": {
+        "aa-geom-c10.md": [],
+        "aa-geom-c11.md": [],
+        "aa-geom-c12.md": [],
+        "aa-geom-c13_14.md": [],
+        "aa-geom-c8.md": [],
+        "aa-geom-c9.md": [],
+        "model-subiect-geom-aa.md": [],
+        "seminar5-geom-aa.md": [],
+        "seminar5-sol-geom-aa.md": [],
+        "seminar6-geom-aa.md": [],
+        "seminar6-sol-geom-aa.md": []
+      },
+      "neighborMap": {}
+    }
+  ]
+}

@@ -1,0 +1,568 @@
+{
+  "nodes": [
+    {
+      "id": "document:aa-geom-c10.md",
+      "type": "document",
+      "name": "C10 - Point-set triangulation",
+      "filePath": "aa-geom-c10.md",
+      "summary": "Lecture notes extending triangulation from polygons to arbitrary planar point sets, covering legal triangulations and angularly optimal triangulations.",
+      "tags": [
+        "lecture",
+        "point-set-triangulation",
+        "legal-triangulation",
+        "optimal-angles"
+      ],
+      "language": "markdown",
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:aa-geom-c11.md",
+      "type": "document",
+      "name": "C11 - Voronoi diagrams",
+      "filePath": "aa-geom-c11.md",
+      "summary": "Lecture notes on Voronoi diagrams, Delaunay triangulations, Fortune-style sweep-line construction, event handling, and planar subdivisions represented with DCEL.",
+      "tags": [
+        "lecture",
+        "voronoi",
+        "delaunay",
+        "sweep-line",
+        "dcel"
+      ],
+      "language": "markdown",
+      "complexity": "complex"
+    },
+    {
+      "id": "document:aa-geom-c12.md",
+      "type": "document",
+      "name": "C12 - Intersections",
+      "filePath": "aa-geom-c12.md",
+      "summary": "Lecture notes on segment and polygon intersections, algebraic complexity, event/status structures, sweep-line methods, output-sensitive results, and thematic layer overlay.",
+      "tags": [
+        "lecture",
+        "segment-intersection",
+        "sweep-line",
+        "arrangements",
+        "overlay"
+      ],
+      "language": "markdown",
+      "complexity": "complex"
+    },
+    {
+      "id": "document:aa-geom-c13_14.md",
+      "type": "document",
+      "name": "C13-14 - Linear programming elements",
+      "filePath": "aa-geom-c13_14.md",
+      "summary": "Lecture notes on half-plane intersections, mold extraction motivation, geometric duality, qualitative half-plane reasoning, and linear programming in geometric settings.",
+      "tags": [
+        "lecture",
+        "linear-programming",
+        "half-plane-intersection",
+        "duality",
+        "optimization"
+      ],
+      "language": "markdown",
+      "complexity": "complex"
+    },
+    {
+      "id": "document:aa-geom-c8.md",
+      "type": "document",
+      "name": "C8 - Convex hulls",
+      "filePath": "aa-geom-c8.md",
+      "summary": "Lecture notes introducing computational geometry, numerical criteria, orientation tests, point ratios, convex hulls, Graham scan, Jarvis march, and divide-and-conquer hull construction.",
+      "tags": [
+        "lecture",
+        "convex-hull",
+        "orientation-test",
+        "graham-scan",
+        "jarvis-march"
+      ],
+      "language": "markdown",
+      "complexity": "complex"
+    },
+    {
+      "id": "document:aa-geom-c9.md",
+      "type": "document",
+      "name": "C9 - Polygon triangulation",
+      "filePath": "aa-geom-c9.md",
+      "summary": "Lecture notes on the art gallery problem, polygon visibility, ear clipping, monotone polygon triangulation, dual graphs, and 3-coloring arguments.",
+      "tags": [
+        "lecture",
+        "polygon-triangulation",
+        "art-gallery",
+        "ear-clipping",
+        "monotone-polygon"
+      ],
+      "language": "markdown",
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:model-subiect-geom-aa.md",
+      "type": "document",
+      "name": "Computational geometry exam model",
+      "filePath": "model-subiect-geom-aa.md",
+      "summary": "Exam model for the computational geometry module with multiple-choice and open questions spanning C8 through C13-14 topics.",
+      "tags": [
+        "exam",
+        "assessment",
+        "review",
+        "computational-geometry"
+      ],
+      "language": "markdown",
+      "complexity": "simple"
+    },
+    {
+      "id": "document:seminar5-geom-aa.md",
+      "type": "document",
+      "name": "Seminar 5 exercises",
+      "filePath": "seminar5-geom-aa.md",
+      "summary": "Exercise sheet for weeks 9 and 10 covering collinearity ratios, orientation determinants, Graham scan convex hull traces, and divide-and-conquer convex hull analysis.",
+      "tags": [
+        "seminar",
+        "exercises",
+        "convex-hull",
+        "orientation-test",
+        "graham-scan"
+      ],
+      "language": "markdown",
+      "complexity": "simple"
+    },
+    {
+      "id": "document:seminar5-sol-geom-aa.md",
+      "type": "document",
+      "name": "Seminar 5 solutions",
+      "filePath": "seminar5-sol-geom-aa.md",
+      "summary": "Worked solutions for Seminar 5 exercises, including collinearity computations, orientation tests, Graham scan lower hull evolution, and convex hull divide-and-conquer reasoning.",
+      "tags": [
+        "seminar",
+        "solutions",
+        "convex-hull",
+        "orientation-test",
+        "graham-scan"
+      ],
+      "language": "markdown",
+      "complexity": "simple"
+    },
+    {
+      "id": "document:seminar6-geom-aa.md",
+      "type": "document",
+      "name": "Seminar 6 exercises",
+      "filePath": "seminar6-geom-aa.md",
+      "summary": "Exercise sheet for weeks 11 and 12 covering Jarvis march, art gallery camera placement, triangulations, convex and concave vertices, and convex hull counting cases.",
+      "tags": [
+        "seminar",
+        "exercises",
+        "jarvis-march",
+        "art-gallery",
+        "triangulation"
+      ],
+      "language": "markdown",
+      "complexity": "simple"
+    },
+    {
+      "id": "document:seminar6-sol-geom-aa.md",
+      "type": "document",
+      "name": "Seminar 6 solutions",
+      "filePath": "seminar6-sol-geom-aa.md",
+      "summary": "Worked solutions for Seminar 6 exercises, explaining Jarvis march pivot tests, art gallery triangulation/coloring, polygon examples, and convex hull counting cases.",
+      "tags": [
+        "seminar",
+        "solutions",
+        "jarvis-march",
+        "art-gallery",
+        "triangulation"
+      ],
+      "language": "markdown",
+      "complexity": "simple"
+    },
+    {
+      "type": "concept",
+      "complexity": "moderate",
+      "id": "concept:computational-geometry-curriculum",
+      "name": "Computational geometry curriculum",
+      "summary": "The overall sequence of course materials for advanced algorithms topics in computational geometry.",
+      "tags": [
+        "course",
+        "computational-geometry"
+      ]
+    },
+    {
+      "type": "concept",
+      "complexity": "moderate",
+      "id": "concept:convex-hulls",
+      "name": "Convex hull algorithms",
+      "summary": "Orientation-based methods for computing convex hull boundaries, including Graham scan, Jarvis march, and divide-and-conquer strategies.",
+      "tags": [
+        "convex-hull",
+        "orientation-test"
+      ]
+    },
+    {
+      "type": "concept",
+      "complexity": "moderate",
+      "id": "concept:triangulation",
+      "name": "Triangulation methods",
+      "summary": "Polygon and point-set triangulation techniques used for art gallery arguments, monotone polygons, and legal triangulations.",
+      "tags": [
+        "triangulation",
+        "art-gallery"
+      ]
+    },
+    {
+      "type": "concept",
+      "complexity": "moderate",
+      "id": "concept:voronoi-delaunay",
+      "name": "Voronoi and Delaunay structures",
+      "summary": "Nearest-site subdivisions, Delaunay duality, sweep-line construction, and DCEL representation of planar subdivisions.",
+      "tags": [
+        "voronoi",
+        "delaunay",
+        "dcel"
+      ]
+    },
+    {
+      "type": "concept",
+      "complexity": "moderate",
+      "id": "concept:sweep-line-intersections",
+      "name": "Sweep-line intersections",
+      "summary": "Event-driven algorithms for detecting segment and polygon intersections with status structures and output-sensitive behavior.",
+      "tags": [
+        "sweep-line",
+        "intersections"
+      ]
+    },
+    {
+      "type": "concept",
+      "complexity": "moderate",
+      "id": "concept:duality-linear-programming",
+      "name": "Duality and linear programming",
+      "summary": "Half-plane intersections, point-line duality, and optimization problems framed as geometric linear programming.",
+      "tags": [
+        "duality",
+        "linear-programming",
+        "half-plane"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "source": "document:aa-geom-c8.md",
+      "target": "concept:computational-geometry-curriculum",
+      "type": "documents",
+      "weight": 0.5,
+      "direction": "forward",
+      "summary": "C8 starts the computational geometry course sequence."
+    },
+    {
+      "source": "document:aa-geom-c8.md",
+      "target": "concept:convex-hulls",
+      "type": "documents",
+      "weight": 0.5,
+      "direction": "forward",
+      "summary": "C8 explains convex hull algorithms and orientation criteria."
+    },
+    {
+      "source": "document:aa-geom-c9.md",
+      "target": "concept:triangulation",
+      "type": "documents",
+      "weight": 0.5,
+      "direction": "forward",
+      "summary": "C9 develops polygon triangulation and art gallery results."
+    },
+    {
+      "source": "document:aa-geom-c10.md",
+      "target": "concept:triangulation",
+      "type": "documents",
+      "weight": 0.5,
+      "direction": "forward",
+      "summary": "C10 extends triangulation ideas to arbitrary point sets."
+    },
+    {
+      "source": "document:aa-geom-c11.md",
+      "target": "concept:voronoi-delaunay",
+      "type": "documents",
+      "weight": 0.5,
+      "direction": "forward",
+      "summary": "C11 covers Voronoi diagrams, Delaunay triangulations, and DCEL representation."
+    },
+    {
+      "source": "document:aa-geom-c12.md",
+      "target": "concept:sweep-line-intersections",
+      "type": "documents",
+      "weight": 0.5,
+      "direction": "forward",
+      "summary": "C12 covers segment intersections and sweep-line algorithms."
+    },
+    {
+      "source": "document:aa-geom-c13_14.md",
+      "target": "concept:duality-linear-programming",
+      "type": "documents",
+      "weight": 0.5,
+      "direction": "forward",
+      "summary": "C13-14 covers half-plane intersections, duality, and linear programming."
+    },
+    {
+      "source": "document:aa-geom-c9.md",
+      "target": "concept:computational-geometry-curriculum",
+      "type": "documents",
+      "weight": 0.5,
+      "direction": "forward",
+      "summary": "This lecture belongs to the computational geometry course sequence."
+    },
+    {
+      "source": "document:aa-geom-c10.md",
+      "target": "concept:computational-geometry-curriculum",
+      "type": "documents",
+      "weight": 0.5,
+      "direction": "forward",
+      "summary": "This lecture belongs to the computational geometry course sequence."
+    },
+    {
+      "source": "document:aa-geom-c11.md",
+      "target": "concept:computational-geometry-curriculum",
+      "type": "documents",
+      "weight": 0.5,
+      "direction": "forward",
+      "summary": "This lecture belongs to the computational geometry course sequence."
+    },
+    {
+      "source": "document:aa-geom-c12.md",
+      "target": "concept:computational-geometry-curriculum",
+      "type": "documents",
+      "weight": 0.5,
+      "direction": "forward",
+      "summary": "This lecture belongs to the computational geometry course sequence."
+    },
+    {
+      "source": "document:aa-geom-c13_14.md",
+      "target": "concept:computational-geometry-curriculum",
+      "type": "documents",
+      "weight": 0.5,
+      "direction": "forward",
+      "summary": "This lecture belongs to the computational geometry course sequence."
+    },
+    {
+      "source": "document:aa-geom-c8.md",
+      "target": "document:aa-geom-c9.md",
+      "type": "related",
+      "weight": 0.5,
+      "direction": "forward",
+      "summary": "Consecutive lecture in the computational geometry course sequence."
+    },
+    {
+      "source": "document:aa-geom-c9.md",
+      "target": "document:aa-geom-c10.md",
+      "type": "related",
+      "weight": 0.5,
+      "direction": "forward",
+      "summary": "Consecutive lecture in the computational geometry course sequence."
+    },
+    {
+      "source": "document:aa-geom-c10.md",
+      "target": "document:aa-geom-c11.md",
+      "type": "related",
+      "weight": 0.5,
+      "direction": "forward",
+      "summary": "Consecutive lecture in the computational geometry course sequence."
+    },
+    {
+      "source": "document:aa-geom-c11.md",
+      "target": "document:aa-geom-c12.md",
+      "type": "related",
+      "weight": 0.5,
+      "direction": "forward",
+      "summary": "Consecutive lecture in the computational geometry course sequence."
+    },
+    {
+      "source": "document:aa-geom-c12.md",
+      "target": "document:aa-geom-c13_14.md",
+      "type": "related",
+      "weight": 0.5,
+      "direction": "forward",
+      "summary": "Consecutive lecture in the computational geometry course sequence."
+    },
+    {
+      "source": "document:aa-geom-c8.md",
+      "target": "document:aa-geom-c9.md",
+      "type": "related",
+      "weight": 0.5,
+      "direction": "forward",
+      "summary": "Convexity and orientation tests support polygon triangulation reasoning."
+    },
+    {
+      "source": "document:aa-geom-c9.md",
+      "target": "document:aa-geom-c10.md",
+      "type": "related",
+      "weight": 0.5,
+      "direction": "forward",
+      "summary": "Point-set triangulation builds on polygon triangulation."
+    },
+    {
+      "source": "document:aa-geom-c10.md",
+      "target": "document:aa-geom-c11.md",
+      "type": "related",
+      "weight": 0.5,
+      "direction": "forward",
+      "summary": "Delaunay triangulation connects point-set triangulations with Voronoi diagrams."
+    },
+    {
+      "source": "document:aa-geom-c11.md",
+      "target": "document:aa-geom-c12.md",
+      "type": "related",
+      "weight": 0.5,
+      "direction": "forward",
+      "summary": "Both lectures use sweep-line and planar subdivision ideas."
+    },
+    {
+      "source": "document:aa-geom-c12.md",
+      "target": "document:aa-geom-c13_14.md",
+      "type": "related",
+      "weight": 0.5,
+      "direction": "forward",
+      "summary": "Intersection methods lead into half-plane intersections and geometric optimization."
+    },
+    {
+      "source": "document:seminar5-geom-aa.md",
+      "target": "document:aa-geom-c8.md",
+      "type": "documents",
+      "weight": 0.5,
+      "direction": "forward",
+      "summary": "Seminar 5 exercises practice C8 convex hull and orientation material."
+    },
+    {
+      "source": "document:seminar5-sol-geom-aa.md",
+      "target": "document:seminar5-geom-aa.md",
+      "type": "related",
+      "weight": 0.5,
+      "direction": "forward",
+      "summary": "Seminar 5 solutions correspond to the Seminar 5 exercise sheet."
+    },
+    {
+      "source": "document:seminar5-sol-geom-aa.md",
+      "target": "document:aa-geom-c8.md",
+      "type": "documents",
+      "weight": 0.5,
+      "direction": "forward",
+      "summary": "Seminar 5 solutions explain C8-style convex hull and orientation exercises."
+    },
+    {
+      "source": "document:seminar6-geom-aa.md",
+      "target": "document:aa-geom-c8.md",
+      "type": "documents",
+      "weight": 0.5,
+      "direction": "forward",
+      "summary": "Seminar 6 exercises include Jarvis march and convex hull counting tasks."
+    },
+    {
+      "source": "document:seminar6-geom-aa.md",
+      "target": "document:aa-geom-c9.md",
+      "type": "documents",
+      "weight": 0.5,
+      "direction": "forward",
+      "summary": "Seminar 6 exercises include art gallery and polygon triangulation tasks."
+    },
+    {
+      "source": "document:seminar6-sol-geom-aa.md",
+      "target": "document:seminar6-geom-aa.md",
+      "type": "related",
+      "weight": 0.5,
+      "direction": "forward",
+      "summary": "Seminar 6 solutions correspond to the Seminar 6 exercise sheet."
+    },
+    {
+      "source": "document:seminar6-sol-geom-aa.md",
+      "target": "document:aa-geom-c8.md",
+      "type": "documents",
+      "weight": 0.5,
+      "direction": "forward",
+      "summary": "Seminar 6 solutions explain Jarvis march and convex hull exercises."
+    },
+    {
+      "source": "document:seminar6-sol-geom-aa.md",
+      "target": "document:aa-geom-c9.md",
+      "type": "documents",
+      "weight": 0.5,
+      "direction": "forward",
+      "summary": "Seminar 6 solutions explain art gallery and triangulation exercises."
+    },
+    {
+      "source": "document:model-subiect-geom-aa.md",
+      "target": "document:aa-geom-c8.md",
+      "type": "documents",
+      "weight": 0.5,
+      "direction": "forward",
+      "summary": "The exam model samples this lecture topic."
+    },
+    {
+      "source": "document:model-subiect-geom-aa.md",
+      "target": "document:aa-geom-c9.md",
+      "type": "documents",
+      "weight": 0.5,
+      "direction": "forward",
+      "summary": "The exam model samples this lecture topic."
+    },
+    {
+      "source": "document:model-subiect-geom-aa.md",
+      "target": "document:aa-geom-c10.md",
+      "type": "documents",
+      "weight": 0.5,
+      "direction": "forward",
+      "summary": "The exam model samples this lecture topic."
+    },
+    {
+      "source": "document:model-subiect-geom-aa.md",
+      "target": "document:aa-geom-c11.md",
+      "type": "documents",
+      "weight": 0.5,
+      "direction": "forward",
+      "summary": "The exam model samples this lecture topic."
+    },
+    {
+      "source": "document:model-subiect-geom-aa.md",
+      "target": "document:aa-geom-c12.md",
+      "type": "documents",
+      "weight": 0.5,
+      "direction": "forward",
+      "summary": "The exam model samples this lecture topic."
+    },
+    {
+      "source": "document:model-subiect-geom-aa.md",
+      "target": "document:aa-geom-c13_14.md",
+      "type": "documents",
+      "weight": 0.5,
+      "direction": "forward",
+      "summary": "The exam model samples this lecture topic."
+    },
+    {
+      "source": "concept:triangulation",
+      "target": "concept:voronoi-delaunay",
+      "type": "related",
+      "weight": 0.5,
+      "direction": "forward",
+      "summary": "Delaunay triangulations connect point-set triangulation to Voronoi diagrams."
+    },
+    {
+      "source": "concept:sweep-line-intersections",
+      "target": "concept:voronoi-delaunay",
+      "type": "related",
+      "weight": 0.5,
+      "direction": "forward",
+      "summary": "Sweep-line event processing appears in both intersection algorithms and Voronoi construction."
+    },
+    {
+      "source": "concept:sweep-line-intersections",
+      "target": "concept:duality-linear-programming",
+      "type": "related",
+      "weight": 0.5,
+      "direction": "forward",
+      "summary": "Both areas analyze planar geometric constraints through events or half-plane boundaries."
+    },
+    {
+      "source": "concept:convex-hulls",
+      "target": "concept:triangulation",
+      "type": "related",
+      "weight": 0.5,
+      "direction": "forward",
+      "summary": "Convexity and orientation predicates are prerequisites for triangulation algorithms."
+    }
+  ]
+}
