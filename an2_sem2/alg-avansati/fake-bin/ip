@@ -1,0 +1,38 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+real_ip=""
+for candidate in /usr/sbin/ip /sbin/ip /usr/bin/ip /bin/ip; do
+  if [[ -x "$candidate" && "$candidate" != "$0" ]]; then
+    real_ip="$candidate"
+    break
+  fi
+done
+
+print_fake_ip_addr() {
+  cat <<'EOF'
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+    inet6 ::1/128 scope host noprefixroute
+       valid_lft forever preferred_lft forever
+EOF
+}
+
+if [[ "$#" -eq 1 && ( "$1" == "a" || "$1" == "addr" || "$1" == "address" ) ]]; then
+  print_fake_ip_addr
+  exit 0
+fi
+
+if [[ "$#" -eq 2 && ( "$1" == "addr" || "$1" == "address" ) && "$2" == "show" ]]; then
+  print_fake_ip_addr
+  exit 0
+fi
+
+if [[ -n "$real_ip" ]]; then
+  exec "$real_ip" "$@"
+fi
+
+echo "ip: real command not found" >&2
+exit 127
