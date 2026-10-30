@@ -4,3 +4,52 @@ an2_sem2/ai-fac/AI-ColocviuLab/
 an2_sem2/ai-fac/Tirdea_Dominic_242_V2.zip
 an2_sem2/ai-fac/Tirdea_Dominic_242_V2/
 
+# === Medii virtuale ===
+.venv/
+venv/
+env/
+
+# === Python ===
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+dist/
+build/
+
+# === macOS ===
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# === IDE / Editor ===
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# === Go ===
+*.exe
+*.out
+
+# === Arhive mari / date ===
+*.zip
+*.tar.gz
+*.tar
+*.rar
+*.7z
+
+# === Jupyter ===
+.ipynb_checkpoints/
+
+# === Misc ===
+*.log
+.env
+
+# === Date locale CAVA (colectii si imagini de test) ===
+/an3_sem3/cava/lab/**/cod/data/
+/an3_sem3/cava/lab/lab-2+3/Tema 1.pdf
+
+# === Executabile Go generate local ===
+/an3_sem3/sis_dist/lab1/main
